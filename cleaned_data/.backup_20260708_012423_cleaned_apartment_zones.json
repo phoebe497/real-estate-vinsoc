@@ -1,0 +1,770 @@
+{
+  "the-sapphire": {
+    "name": "The Sapphire",
+    "introduction": "Chung cư Vinhomes Ocean Park được triển khai thi công từ năm 2018 và bắt đầu bàn giao từ khoảng tháng 4 năm 2020 với các căn hộ phân khu Sapphire 2. Đến thời điểm hiện tại, nơi đây đã hình thành nên một khu đô thị vô cùng hiện đại và tiện nghi với không gian sống sinh thái trong lành và thư thái.\n\nCảnh quan các phân khu căn hộ Vinhomes Ocean Park được thiết kế theo các phong cách kiến trúc tinh hoa hàng đầu thế giới như Singapore, Nhật Bản, Thụy Sỹ, Dubai, … Chỉ trong thời gian khoảng 5 năm kể từ thời điểm khởi công, Ocean Park đã kiến tạo nên một “thành phố sinh thái thu nhỏ” với một cộng đồng cư dân văn minh.\n\nĐặc biệt, với nhiều chính sách hỗ trợ ưu đãi và giá bán chỉ từ 1,3 tỷ/căn , căn hộ Vin Ocean Park thực sự đã trở thành một trong những sự lựa chọn hàng đầu cho mọi khách hàng đang tìm kiếm cho mình và gia đình một khôi nhà mơ ước.\n\nCác căn hộ tại phân khu The Sapphire là phân khúc căn hộ có giá bán thấp nhất tại dự án Vinhomes Ocean Park, chỉ khoảng 30 – 40 triệu/m2 với tiêu chuẩn ban giao nội thất tiêu chuẩn. Căn hộ có diện tích từ khoảng 25 – 98,5m2 với các loại hình căn hộ Studio, 1 ngủ, 1 ngủ + 1, 2 ngủ, 2 ngủ + 1 và 3 ngủ.",
+    "location": "The Ocean View Vinhomes Ocean Park là phân khu chung cư được mở bán tiếp theo phân khu The Sapphire. Được quy hoạch theo mô hình “Nghỉ dưỡng sinh thái đẳng cấp” giữa biển xanh khoáng đạt, The Ocean View là nơi mà cư dân có thể thư thái tận hưởng sự tiện nghi của thiên đường tiện ích, sự trong lành của không “ốc đảo xanh” và sự yên tĩnh ngạy tại một Đại đô thị sôi động.\n\nSở hữu vị trí của ngõ của “Quận Ocean”, The Metropolitan nằm tại mặt đường Lý Thánh Tông và chạy dọc theo công viên hồ San Hô lớn bậc nhất tại dự án. The Metropolitan bao gồm 4 tiểu khu là The Zurich, The Paris, The London và The Beverly , tổng số 15 tòa căn hộ phân khúc cao cấp với các tiêu chuẩn bàn giao nội thất và dịch vụ quản lý vận hành đẳng cấp bậc nhất tại dự án.",
+    "handover_status": "The Ocean View : tương ứng với 3 phong cách khách nhau là: The Zenpark : 4 tòa căn hộ cao cấp Nhật Bản, đã hoàn thiện và bàn giao.",
+    "developer": "Vingroup",
+    "design_style": "Modern",
+    "scale": "Chung cư Vinhomes Ocean Park được triển khai thi công từ năm 2018 và bắt đầu bàn giao từ khoảng tháng 4 năm 2020 với các căn hộ phân khu Sapphire 2. Đến thời điểm hiện tại, nơi đây đã hình thành nên một khu đô thị vô cùng hiện đại và tiện nghi với không gian sống sinh thái trong lành và thư thái.",
+    "handover_standard": "Chung cư Vinhomes Ocean Park được triển khai thi công từ năm 2018 và bắt đầu bàn giao từ khoảng tháng 4 năm 2020 với các căn hộ phân khu Sapphire 2. Đến thời điểm hiện tại, nơi đây đã hình thành nên một khu đô thị vô cùng hiện đại và tiện nghi với không gian sống sinh thái trong lành và thư thái.",
+    "legal_status": "Không thời hạn.",
+    "parent_zone": "The Sapphire",
+    "apartment_specs": {
+      "Studio": {
+        "area": "25 – 41m²",
+        "price": "1,8 – 2,2 tỷ"
+      },
+      "1PN": {
+        "area": "35 – 49m²",
+        "price": "2,1 – 2,8 tỷ"
+      },
+      "2PN": {
+        "area": "53 – 75m²",
+        "price": "3,2 – 4,5 tỷ"
+      },
+      "3PN": {
+        "area": "73 – 105m²",
+        "price": "4,5 – 6,5 tỷ"
+      },
+      "1PN+1": {
+        "area": "42,5 – 43,9m²",
+        "price": "2.3 – 2.7 tỷ"
+      },
+      "2PN+1": {
+        "area": "54,6 – 63,7m²",
+        "price": "3.2 – 4.5 tỷ"
+      }
+    },
+    "internal_amenities": [
+      "Bể bơi ngoài trời",
+      "Bể bơi trong nhà tiêu chuẩn quốc tế",
+      "Chòi nghỉ",
+      "Cổng torri",
+      "Ghế nghỉ",
+      "Hướng nhìn sang tòa S2.18. Phía Tây Bắc : là công viên nội khu với sân chơi trẻ em",
+      "Hồ cá koi",
+      "Phòng tập Gym",
+      "Spa",
+      "Sân thể thao",
+      "Sảnh thang máy sang trọng. Phân khu Masteri Waterfront bao gồm 2 tiểu khu là Miami với 3 tòa M1",
+      "Vườn nhiệt đới",
+      "Đường dạo",
+      "… và các dịch vụ 5 sao với sảnh Lounge"
+    ],
+    "external_amenities": [
+      "Biển hồ",
+      "Bệnh viện",
+      "Công viên",
+      "Khu căn hộ Masteri Waterfront sở hữu vị trí trái tim trung tâm của khu đô thị với tầm View toàn cảnh hồ Ngọc Trai 24",
+      "Trung tâm thương mại",
+      "Vincom",
+      "Vincom mega mall",
+      "Vinmec",
+      "Vinuni",
+      "Đường lý thánh tông",
+      "Đại học"
+    ],
+    "sales_policies": [],
+    "source_url": "https://vinhomeoceanpark.com.vn/chung-cu"
+  },
+  "the-zenpark": {
+    "name": "The Zenpark",
+    "introduction": "The Zenpark là khu căn hộ cao cấp bậc nhất tại “Quận Ocean” thuộc phân khúc Ruby với tiêu chuẩn bàn giao và chất lượng dịch vụ quản lý vận hành tương đương với các khu căn hộ Vinhomes Times City, Vinhomes Royal City, Vinhomes Symphony,… Căn hộ The Zenpark là không gian sống đẳng cấp, tiện nghi và bình yên mang đậm phong cách Nhật Bản.\n\nKhu chung cư The Zenpark được kiến tạo trên ý tưởng về một lối sống cân bằng thăng hoa được xây đắp từ triết lý sống đến từ Nhật Bản, nơi các giá trị dẫn lối tương lai, là mạch nguồn khai mở thịnh vượng, mang đến sự an yên, hài hòa từ thể chất đến tinh thần. Tại đây, cư dân có thể cảm nhận sự bình yên và trải nghiệm những khoảnh khắc trọn vẹn quý giá tại vườn Nhật duy nhất của Đại đô thị Vinhomes Ocean Park.\n\nQuy mô : 04 tòa cao 31 tầng là R1.01 , R1.02 , R1.03 và R1.05 ; 01 Hầm thông nhau rộng 24.000m2.\n\nSố lượng căn hộ: Hơn 2.500 căn hộ cao cấp.",
+    "location": "Tiểu khu The Zenpark sở hữu vị trí đắc địa bậc nhất của Đại đô thị Vinhomes Ocean Park, giao thông vô cùng thuận tiện khi nằm kế cận với đường Lý Thánh Tông (rộng 40m) kết nối các trục đường huyết mạch là Đường 5 (cũ), Cao tốc Hà Nội – Hải Phòng và đường 379 đi Ecopark. Từ Zenpark, cư dân có thể kết nối cả nội và ngoại khu một cách dễ dàng.\n\nĐặc biệt, một trong những yếu tố đắt giá nhất của một Bất động sản là trong tương lai, cư dân Zenpark sẽ được thừa hưởng trực tiếp lợi ích từ tuyến đường sắt đô thị Metro số 8 nằm kế cận với phân khu.",
+    "handover_status": "Nhận nhà ngay.",
+    "developer": "Vingroup",
+    "design_style": "Phong cách Nhật Bản",
+    "scale": "The Zenpark là khu căn hộ cao cấp bậc nhất tại “Quận Ocean” thuộc phân khúc Ruby với tiêu chuẩn bàn giao và chất lượng dịch vụ quản lý vận hành tương đương với các khu căn hộ Vinhomes Times City, Vinhomes Royal City, Vinhomes Symphony,… Căn hộ The Zenpark là không gian sống đẳng cấp, tiện nghi và bình yên mang đậm phong cách Nhật Bản.",
+    "handover_standard": "The Zenpark là khu căn hộ cao cấp bậc nhất tại “Quận Ocean” thuộc phân khúc Ruby với tiêu chuẩn bàn giao và chất lượng dịch vụ quản lý vận hành tương đương với các khu căn hộ Vinhomes Times City, Vinhomes Royal City, Vinhomes Symphony,… Căn hộ The Zenpark là không gian sống đẳng cấp, tiện nghi và bình yên mang đậm phong cách Nhật Bản.",
+    "legal_status": "Không thời hạn.",
+    "parent_zone": "The Ocean View",
+    "apartment_specs": {
+      "Studio": {
+        "area": "27 – 30m²",
+        "price": "1,2 – 1,6 tỷ"
+      },
+      "1PN": {
+        "area": "41 – 45m²",
+        "price": "1,7 – 2,3 tỷ"
+      },
+      "2PN": {
+        "area": "64 – 70m²",
+        "price": "3,0 – 3,5 tỷ"
+      },
+      "3PN": {
+        "area": "76 – 82m²",
+        "price": "3,5 – 4,8 tỷ"
+      },
+      "1PN+1": {
+        "area": "47 – 52m²",
+        "price": "2,0 – 2,5 tỷ"
+      },
+      "2PN+1": {
+        "area": "74 – 77m²",
+        "price": "3,5 – 4,3 tỷ"
+      },
+      "3PN+1": {
+        "area": "88 – 100,6m²",
+        "price": "Đã bán hết"
+      }
+    },
+    "internal_amenities": [
+      "Bể bơi",
+      "Bể bơi bốn mùa",
+      "Chòi & ghế nghỉ",
+      "Chòi nghỉ lục giác hay những tiểu cảnh cổng Torri",
+      "Gym ngoài trời và phòng tập Gym trong nhà",
+      "Không gian Vườn Nhật The Zenpark nổi bật và cuốn hút với Hồ cá Koi",
+      "Nhà để xe",
+      "Phòng giải trí",
+      "Phòng sinh hoạt cộng đồng",
+      "Quảng trường",
+      "Smart home",
+      "Spa",
+      "Sân chơi trẻ em",
+      "Sân thể thao",
+      "Sảnh lounge",
+      "Thang máy",
+      "Vườn nhật",
+      "Vườn nội khu",
+      "Đường dạo"
+    ],
+    "external_amenities": [
+      "Biển nhân tạo",
+      "Cao tốc Hà Nội – Hải Phòng và đường 379 đi Ecopark. Từ Zenpark",
+      "Công viên",
+      "Hồ Ngọc Trai (24",
+      "Metro số 8",
+      "Vinmec",
+      "Vinschool",
+      "Đường lý thánh tông"
+    ],
+    "sales_policies": [],
+    "source_url": "https://vinhomeoceanpark.com.vn/the-zenpark"
+  },
+  "the-pavilion": {
+    "name": "The Pavilion",
+    "introduction": "The Pavilion là phân khu căn hộ thuộc phân khu The Ocean View – trung tâm của khu đô thị Vinhomes Ocean Park. Sở hữu vị trí đắc địa, căn hộ The Pavilion sẽ là không gian sống tiện nghi, hiện đại và an lành cho mọi cư dân.\n\nPhân khu The Pavilion được mệnh danh là Ốc đảo xanh giữ lòng Thành phố Biển Ocean City với hệ sinh thái cây xanh, thảm cỏ, hồ nước và vườn thực vật Botanic Garden. Chỉ cần một bước chân là cư dân Pavilion có thể tận hưởng một không gian sống xanh và hít thở khí trời mát lành tựa như một ốc đảo nghỉ dưỡng Singapore ngay trước thềm nhà.\n\nThe Pavilion cũng là phân khu duy nhất sở hữu riêng cho mình 02 tầng hầm để xe thông nhau (các phân khu khác chỉ có 1 hầm) và nằm ngay bên cạnh Nhà để xe 4 tầng. Vì vậy mà cư dân sẽ không cần phải lo lắng về việc thiếu chỗ để xe ô tô khi về sinh sống tại đây.\n\nQuy mô : 04 tòa cao 30 – 32 tầng là P1, P2, P3 và P4.",
+    "location": "The Pavilion là phân khu căn hộ thuộc phân khu The Ocean View – trung tâm của khu đô thị Vinhomes Ocean Park. Sở hữu vị trí đắc địa, căn hộ The Pavilion sẽ là không gian sống tiện nghi, hiện đại và an lành cho mọi cư dân.\n\nThe Pavilion cũng là phân khu duy nhất sở hữu riêng cho mình 02 tầng hầm để xe thông nhau (các phân khu khác chỉ có 1 hầm) và nằm ngay bên cạnh Nhà để xe 4 tầng. Vì vậy mà cư dân sẽ không cần phải lo lắng về việc thiếu chỗ để xe ô tô khi về sinh sống tại đây.",
+    "handover_status": "BÀN GIAO QUÝ 1 NĂM 2024 BẢNG GIÁ GỐC – THỦ TỤC TRỰC TIẾP CĐT Tư vấn ngay",
+    "developer": "Vingroup",
+    "design_style": "Tropical Resort",
+    "scale": "The Pavilion là phân khu căn hộ thuộc phân khu The Ocean View – trung tâm của khu đô thị Vinhomes Ocean Park. Sở hữu vị trí đắc địa, căn hộ The Pavilion sẽ là không gian sống tiện nghi, hiện đại và an lành cho mọi cư dân.",
+    "handover_standard": "Tiêu chuẩn nội thất : Sapphire +.",
+    "legal_status": "Không thời hạn.",
+    "parent_zone": "The Pavilion",
+    "apartment_specs": {
+      "Studio": {
+        "area": "27 – 35m²",
+        "price": "1,4 – 1,6 tỷ"
+      },
+      "1PN": {
+        "area": "35 – 47m²",
+        "price": "1,6 – 2,3 tỷ"
+      },
+      "2PN": {
+        "area": "53 – 74m²",
+        "price": "2,4 – 3,3 tỷ"
+      },
+      "3PN": {
+        "area": "78 – 99,5m²",
+        "price": "4,1 – 5,1 tỷ"
+      },
+      "1PN+1": {
+        "area": "43 – 48m²",
+        "price": "2,0 – 2,3 tỷ"
+      }
+    },
+    "internal_amenities": [
+      "Ghế nghỉ",
+      "Nhà để xe",
+      "Quảng trường",
+      "Smart home",
+      "Spa",
+      "Thang máy",
+      "Đảo Yoga"
+    ],
+    "external_amenities": [
+      "Cao tốc hà nội",
+      "Công viên",
+      "Ga metro",
+      "Quốc lộ 5",
+      "Đường lý thánh tông"
+    ],
+    "sales_policies": [],
+    "source_url": "https://vinhomeoceanpark.com.vn/the-pavilion"
+  },
+  "the-bayfront": {
+    "name": "The Bayfront",
+    "introduction": "Vinhomes Ocean Park sở hữu hệ sinh thái tiện ích và dịch vụ mang thương hiệu Vinhomes vô cùng đa dạng và đẳng cấp. Sống tại Vinhomes Ocean Park, các cư dân tinh hoa sẽ được tận hưởng trọn vẹn một không gian tiện nghi và những phút giây hạnh phúc bên gia đình.\n\nPhòng kinh doanh dự án Vinhomes Ocean Park.\n\nĐịa chỉ giao dịch: The Galleria by Masterise Homes, Vinhomes Ocean Park, Gia Lâm, Hà Nội.\n\nThe Ocean View The Zenpark Tòa R1.01",
+    "location": "",
+    "handover_status": "",
+    "developer": "Vingroup",
+    "design_style": "Dubai Tropical",
+    "scale": "Lumiere Orient Pearl là dự án căn hộ hạng sang thuộc Bộ sưu tập Lumiere Series được triển khai bởi thương hiệu CĐT Masterise Homes. Sở hữu vị trí tâm điểm và không gian sống xanh trong lành, Lumiere Orient Pearl kiến tạo nên một không gian sống đẳng cấp với kiến trúc sang trọng, hệ tiện ích chuẩn quốc tế, dịch vụ chuẩn mực và không gian thiên nhiên tựa như giọt sương mai mát lành, tinh khiết.",
+    "handover_standard": "",
+    "legal_status": "",
+    "parent_zone": "The Bayfront",
+    "apartment_specs": {},
+    "internal_amenities": [
+      "Spa"
+    ],
+    "external_amenities": [
+      "Biển hồ"
+    ],
+    "sales_policies": [],
+    "source_url": "https://vinhomeoceanpark.com.vn/the-bayfront"
+  },
+  "the-zurich": {
+    "name": "The Zurich",
+    "introduction": "The Zurich là tiểu khu căn hộ đầu tiên thuộc phân khu The Metropolitan Vinhomes Ocean Park được mở bán. Được quy hoạch và xây dựng dựa trên cảm hứng từ “giá trị vô giá của thời gian” với phong cách kiến trúc Thụy Sỹ, căn hộ The Zurich mang vẻ đẹp đầy kiêu hãnh giữa “tâm điểm thượng lưu” cửa ngõ của “Thành phố biển Ocean City”.\n\nPhân khu The Zurich nằm tại vị trí cửa ngõ của dự án Vinhomes Ocean Park, nằm kế cận với các trục đường huyết mạch là đường Đại Dương (đường chính dẫn vào dự án từ cổng), đường Lý Thánh Tông 40m và đường cao tốc Hà Nội – Hải Phòng. Trong tương lai, đây cũng là vị trí vô cùng thuận tiện để kết nối với tuyến đường sắt đô thị Metro khi nằm ngay gần với nhà ga của tuyến Metro số 08 và các điểm xe bus điện Vinbus.\n\nThe Zurich nằm ngay bên cạnh với Công viên hồ San Hô rộng lớn với không gian cây xanh, mặt nước và hệ sinh thái tiện ích ngoài trời đa dạng như BBQ, Gym, sân chơi liên hoàn, … Bên cạnh đó, phân khu cũng được bao quanh bởi hệ thống giáo dục chất lượng cao với trường quốc tế Brighton College, Deway và trường liên cấp Vinschool.\n\nCăn hộ The Zurich được thiết kế tối ưu hóa về công năng sử dụng với không gian nội thất sang trọng và tinh tế. Thiết kế thông mình với những mảng kính cửa sổ và cửa ban công rộng lớn giúp mọi phòng đều tràn ngập ánh sáng và khí trời tự nhiên.",
+    "location": "The Zurich là tiểu khu căn hộ đầu tiên thuộc phân khu The Metropolitan Vinhomes Ocean Park được mở bán. Được quy hoạch và xây dựng dựa trên cảm hứng từ “giá trị vô giá của thời gian” với phong cách kiến trúc Thụy Sỹ, căn hộ The Zurich mang vẻ đẹp đầy kiêu hãnh giữa “tâm điểm thượng lưu” cửa ngõ của “Thành phố biển Ocean City”.\n\nPhân khu The Zurich nằm tại vị trí cửa ngõ của dự án Vinhomes Ocean Park, nằm kế cận với các trục đường huyết mạch là đường Đại Dương (đường chính dẫn vào dự án từ cổng), đường Lý Thánh Tông 40m và đường cao tốc Hà Nội – Hải Phòng. Trong tương lai, đây cũng là vị trí vô cùng thuận tiện để kết nối với tuyến đường sắt đô thị Metro khi nằm ngay gần với nhà ga của tuyến Metro số 08 và các điểm xe bus điện Vinbus.",
+    "handover_status": "dự kiến tháng 8 năm 2025.",
+    "developer": "Vingroup",
+    "design_style": "Swiss European",
+    "scale": "The Zurich là tiểu khu căn hộ đầu tiên thuộc phân khu The Metropolitan Vinhomes Ocean Park được mở bán. Được quy hoạch và xây dựng dựa trên cảm hứng từ “giá trị vô giá của thời gian” với phong cách kiến trúc Thụy Sỹ, căn hộ The Zurich mang vẻ đẹp đầy kiêu hãnh giữa “tâm điểm thượng lưu” cửa ngõ của “Thành phố biển Ocean City”.",
+    "handover_standard": "Căn hộ The Zurich được thiết kế tối ưu hóa về công năng sử dụng với không gian nội thất sang trọng và tinh tế. Thiết kế thông mình với những mảng kính cửa sổ và cửa ban công rộng lớn giúp mọi phòng đều tràn ngập ánh sáng và khí trời tự nhiên.",
+    "legal_status": "sở hữu không thời hạn.",
+    "parent_zone": "The Metropolitan",
+    "apartment_specs": {
+      "Studio": {
+        "area": "27 – 36m²",
+        "price": "đã bán hết!"
+      },
+      "1PN": {
+        "area": "41 – 48m²",
+        "price": "đã bán hết!"
+      },
+      "2PN": {
+        "area": "54 – 75m²",
+        "price": "đã bán hết!"
+      },
+      "3PN": {
+        "area": "88 – 105m²",
+        "price": "đã bán hết!"
+      }
+    },
+    "internal_amenities": [
+      "Gym",
+      "Quảng trường Thụy Sỹ hay hồ cảnh quan Geneva",
+      "Spa",
+      "Thang máy",
+      "Thiết bị smart home",
+      "Tháp đồng hồ"
+    ],
+    "external_amenities": [
+      "Công viên",
+      "Deway",
+      "Ga metro",
+      "Phân khu cũng được bao quanh bởi hệ thống giáo dục chất lượng cao với trường quốc tế Brighton College",
+      "Trường liên cấp",
+      "Tuyến metro",
+      "Vinbus",
+      "Vinschool",
+      "Xe bus điện",
+      "Đường Lý Thánh Tông 40m và đường cao tốc Hà Nội – Hải Phòng. Trong tương lai"
+    ],
+    "sales_policies": [],
+    "source_url": "https://vinhomeoceanpark.com.vn/the-zurich"
+  },
+  "the-beverly": {
+    "name": "The Beverly",
+    "introduction": "The Beverly là tiểu khu căn hộ thứ 2 thuộc phân khu The Metropolitan được mở bán tiếp theo sau khu The Zurich . The Beverly là “mảnh ghép chất Mỹ” duy nhất tại tâm điểm thượng lưu của “Quận trung tâm” Ocean City.\n\nLấy cảm hứng từ Beverly Hills danh giá xa hoa, khu căn hộ The Beverly với cảnh quan và thiết kế phóng khoáng đậm chất Mỹ đem tới phong cách Glory Living – dành cho các chủ nhân yêu thích lối sống hiện đại, nổi bật và tỏa sáng.\n\nPhân khu The Beverly sở hữu vị trí “độc tôn” khi nằm kế cận với Quảng trường ga Metro của tuyến Metro số 8 – đường Lý Thánh Tông. Phân khu cũng nằm ngay trên các tuyến xe bus điện Vinbus nội và ngoại khu với các mặt đường Hải Đăng 3, Hải Đăng 8 và Hải Đăng 5 .\n\nTừ phân khu, cư dân có thể dễ dàng di chuyển tới các tiện ích nội khu đô thị như Hồ Ngọc Trai, Biển nhân tạo hay Trung tâm thương mại Vincom Mega Mall hay nhanh chóng kết nối với đường Lý Thánh Tông để từ di chuyển tới Cao tốc Hà Nội – Hải Phòng và quốc lộ 5A.",
+    "location": "The Beverly là tiểu khu căn hộ thứ 2 thuộc phân khu The Metropolitan được mở bán tiếp theo sau khu The Zurich . The Beverly là “mảnh ghép chất Mỹ” duy nhất tại tâm điểm thượng lưu của “Quận trung tâm” Ocean City.\n\nPhân khu The Beverly sở hữu vị trí “độc tôn” khi nằm kế cận với Quảng trường ga Metro của tuyến Metro số 8 – đường Lý Thánh Tông. Phân khu cũng nằm ngay trên các tuyến xe bus điện Vinbus nội và ngoại khu với các mặt đường Hải Đăng 3, Hải Đăng 8 và Hải Đăng 5 .",
+    "handover_status": "Dự kiến quý 3/2026.",
+    "developer": "Vingroup",
+    "design_style": "American Glory Living",
+    "scale": "The Beverly là tiểu khu căn hộ thứ 2 thuộc phân khu The Metropolitan được mở bán tiếp theo sau khu The Zurich . The Beverly là “mảnh ghép chất Mỹ” duy nhất tại tâm điểm thượng lưu của “Quận trung tâm” Ocean City.",
+    "handover_standard": "Với diện tích sử dụng từ 28 – 108,2m2 , The Beverly bao gồm đa dạng các loại hình căn hộ gồm: Studio, 1 phòng ngủ, 2 phòng ngủ, 2 phòng ngủ +1 và 3 phòng ngủ. Các căn hộ đều được bàn giao theo tiêu chuẩn Full đồ liền tường bao gồm sàn gỗ, trần thạch cao, điều hòa, tủ bếp & thiết bị bếp, thiết bị vệ sinh & nhà tắm, thiết bị smart home, khóa cửa thông minh, …",
+    "legal_status": "Sở hữu không thời hạn.",
+    "parent_zone": "The Metropolitan",
+    "apartment_specs": {
+      "Studio": {
+        "area": "28 – 36m²",
+        "price": "1,8 – 2,1 tỷ"
+      },
+      "1PN": {
+        "area": "43,2 – 48,6m²",
+        "price": "2,5 – 3,2 tỷ"
+      },
+      "2PN": {
+        "area": "54,4 – 75,3m²",
+        "price": "3,1 – 4,2 tỷ"
+      },
+      "3PN": {
+        "area": "81,5 – 109,2m²",
+        "price": "5,3 – 6,5 tỷ"
+      },
+      "2PN+1": {
+        "area": "76,2 – 79m²",
+        "price": "4,2 – 4,5 tỷ"
+      }
+    },
+    "internal_amenities": [
+      "Bể bơi",
+      "Bể bơi santa monica",
+      "Chỉ nhiều hơn tòa Be2 và tòa Be3 . Mỗi tầng chỉ có 26 căn hộ với tổng số 8 thang máy",
+      "Game room",
+      "Gym",
+      "Hệ thống các công viên tiện ích (sân thể thao",
+      "Kid corner",
+      "Quảng trường",
+      "Sauna",
+      "Spa",
+      "Sân chơi sắc màu",
+      "Sân chơi trẻ em",
+      "Thiết bị smart home",
+      "Vườn đọc sách",
+      "Đài phun nước"
+    ],
+    "external_amenities": [
+      "Biển nhân tạo",
+      "Bộ đôi biển hồ đắt giá",
+      "Cao tốc hà nội",
+      "Cư dân có thể dễ dàng di chuyển tới các tiện ích nội khu đô thị như Hồ Ngọc Trai",
+      "Deway",
+      "Ga metro",
+      "Hệ thống các công viên tiện ích (sân thể thao",
+      "Metro số 8",
+      "Quốc lộ 5",
+      "Trung tâm thương mại",
+      "Trường học",
+      "Trường liên cấp Vinschool",
+      "Trường quốc tế Brighton College",
+      "Tuyến metro",
+      "Vinbus",
+      "Vincom",
+      "Vincom mega mall",
+      "Xe bus điện",
+      "Đường lý thánh tông"
+    ],
+    "sales_policies": [],
+    "source_url": "https://vinhomeoceanpark.com.vn/the-beverly"
+  },
+  "the-london": {
+    "name": "The London",
+    "introduction": "The London là phân khu căn hộ chung cư mới nhất được mở bán tại Vinhomes Ocean Park, nối tiếp sự thành công của phân khu The Beverly . Căn hộ The London được thiế kế theo phong cách lấy cảm hứng thì kiến trúc cổ kính và sang trọng của thành phố London xinh đẹp.\n\nPhân khu The London sở hữu vị trí đắc địa khi nằm tại vị trí 3 mặt đường chính là đường Lý Thánh Tông, đường Hải Đăng 8 và đường Hải Đăng 5.\n\nTừ phân khu London, cư dân có thể nhanh chóng kết nối với cao tốc Hà Nội – Hải Phòng với Quốc lộ 5 qua đường Lý Thánh Tông để qua đó di chuyển vào Trung tâm thành phố Hà Nộ và các tỉnh lân cận. Cư dân London cũng có thể dễ dàng tiếp cận với các Đại tiện ích của khu đô thị như Hồ Ngọc Trai trung tâm, Biển nhân tạo, Đại họ Vinuni, Vincom Mega Mall, Trường liên cấp Vinschool, … qua 2 trục đoừng nội khu là Hải Đăng 5 và Hải Đăng 8.\n\nTỔNG MẶT BẰNG THE LONDON VINHOMES OCEAN PARK MẶT BẰNG CĂN HỘ THE LONDON Phân khu The London Vinhomes Ocean Park bao gồm 3 tòa căn hộ ký hiệu là LD1, LD2 và LD3 với chiều cao 26 tầng và mật độ 17 – 20 căn/tầng. Các tòa căn hộ có thiết kế mặt cắt hình chữ Z, T và U giúp tăng tối da diện tích tiếp xúc với không gian tự nhiên từ mọi mặt của tòa nhà.",
+    "location": "Phân khu The London sở hữu vị trí đắc địa khi nằm tại vị trí 3 mặt đường chính là đường Lý Thánh Tông, đường Hải Đăng 8 và đường Hải Đăng 5.\n\nTừ phân khu London, cư dân có thể nhanh chóng kết nối với cao tốc Hà Nội – Hải Phòng với Quốc lộ 5 qua đường Lý Thánh Tông để qua đó di chuyển vào Trung tâm thành phố Hà Nộ và các tỉnh lân cận. Cư dân London cũng có thể dễ dàng tiếp cận với các Đại tiện ích của khu đô thị như Hồ Ngọc Trai trung tâm, Biển nhân tạo, Đại họ Vinuni, Vincom Mega Mall, Trường liên cấp Vinschool, … qua 2 trục đoừng nội khu là Hải Đăng 5 và Hải Đăng 8.",
+    "handover_status": "Quý 3/2026.",
+    "developer": "Vingroup",
+    "design_style": "British Classical",
+    "scale": "The London là phân khu căn hộ chung cư mới nhất được mở bán tại Vinhomes Ocean Park, nối tiếp sự thành công của phân khu The Beverly . Căn hộ The London được thiế kế theo phong cách lấy cảm hứng thì kiến trúc cổ kính và sang trọng của thành phố London xinh đẹp.",
+    "handover_standard": "The London được định vị thuộc phân khúc căn hộ cao cấp với tiêu chuẩn bàn giao gồm Sàn gỗ, trần thạch cao, điều hòa, tủ bếp & thiết bị bếp, thiết bị vệ sinh & nhà tắm, thiết bị chiếu sáng, hệ thống cửa, ổ căm công tắc, …",
+    "legal_status": "Sở hữu không thời hạn.",
+    "parent_zone": "The London",
+    "apartment_specs": {
+      "Studio": {
+        "area": "26,6 – 38m²",
+        "price": "1,7 – 2,2 tỷ"
+      },
+      "1PN": {
+        "area": "37,2 – 43,9m²",
+        "price": "2,3 – 2,7 tỷ"
+      },
+      "2PN": {
+        "area": "56,8 – 64,2m²",
+        "price": "3,7 – 4,1 tỷ"
+      },
+      "3PN": {
+        "area": "81,6 – 99,5m²",
+        "price": "5 – 6,5 tỷ"
+      },
+      "1PN+1": {
+        "area": "47,6 – 48,4m²",
+        "price": "2,8 – 3,2 tỷ"
+      },
+      "2PN+1": {
+        "area": "76,7m²",
+        "price": "4,4 – 4,7 tỷ"
+      }
+    },
+    "internal_amenities": [
+      "An ninh tại tầng 1; Phòng tập Gym",
+      "Bể bơi",
+      "Bể bơi santa monica",
+      "Gym ngoài trời",
+      "Hệ thống sân thể thao",
+      "Phòng giải trí",
+      "Quảng trường",
+      "Spa",
+      "Sân chơi trẻ em"
+    ],
+    "external_amenities": [
+      "Biển nhân tạo",
+      "Cao tốc hà nội",
+      "Công viên cây xanh. Các tiện ích trong nhà có Sảnh cư dân",
+      "Ga metro",
+      "Hồ ngọc trai",
+      "Quốc lộ 5",
+      "Trường liên cấp Vinschool",
+      "Tuyến metro",
+      "Vincom Mega Mall",
+      "Đường lý thánh tông",
+      "Đại họ Vinuni"
+    ],
+    "sales_policies": [],
+    "source_url": "https://vinhomeoceanpark.com.vn/the-london"
+  },
+  "the-paris": {
+    "name": "The Paris",
+    "introduction": "The Paris là khu căn hộ cuối cùng thuộc phân khu The Metropolitan được mở bán tại khu đô thị Vinhomes Ocean Park. Là một trong những mảnh ghép cuối cùng hoàn thiện Thành phố biển, căn hộ The Paris thực sự là không gian sống hiện đại, đẳng cấp và vô cùng tiện nghi.\n\nNằm tại cửa ngõ của Đại đô thị Vinhomes Ocean Park , phân khu The Paris sở hữu vị trí đắc địa bậc nhất dự án với kết nối giao thông thuận tiện, cùng hệ sinh thái tiện ích đa dạng và đẳng cấp.\n\nVị trí đắt giá của The Paris còn được thể hiện khi nằm kế cận với tuyến đường Đại Dương (trục giao thông chính dẫn vào dự án Vinhomes Ocean Park) với các tuyến xe bus điện xanh Vinbus và đường Lý Thánh Tông (tuyến Metro số 08 trong tương lai). Từ phân khu căn hộ, cư dân có thể dễ dàng kết nối với đường cao tốc Hà Nội – Hải Phòng và Quốc lộ 5A để qua đó di chuyển vào trung tâm Hà Nội và các tỉnh thành lân cận.\n\nLợi thế về vị trí cũng giúp cho The Paris được bao quanh bởi hệ thống giáo dục chất lượng cao như trường liên cấp Vinschool, trường quốc tế Brighton College, Deway và nhiều trường học đang tiếp tục được xây dựng. Cư dân The Paris cũng được tận hưởng không gian xanh khoáng đạt và trong lành cùng hệ tiện ích đa dạng của Công viên hồ San Hô nằm kế cận.",
+    "location": "The Paris là khu căn hộ cuối cùng thuộc phân khu The Metropolitan được mở bán tại khu đô thị Vinhomes Ocean Park. Là một trong những mảnh ghép cuối cùng hoàn thiện Thành phố biển, căn hộ The Paris thực sự là không gian sống hiện đại, đẳng cấp và vô cùng tiện nghi.\n\nNằm tại cửa ngõ của Đại đô thị Vinhomes Ocean Park , phân khu The Paris sở hữu vị trí đắc địa bậc nhất dự án với kết nối giao thông thuận tiện, cùng hệ sinh thái tiện ích đa dạng và đẳng cấp.",
+    "handover_status": "",
+    "developer": "Vingroup",
+    "design_style": "French Classical",
+    "scale": "The Paris là khu căn hộ cuối cùng thuộc phân khu The Metropolitan được mở bán tại khu đô thị Vinhomes Ocean Park. Là một trong những mảnh ghép cuối cùng hoàn thiện Thành phố biển, căn hộ The Paris thực sự là không gian sống hiện đại, đẳng cấp và vô cùng tiện nghi.",
+    "handover_standard": "Phân khu The Paris sở hữu đa dạng các loại hình căn hộ bao gồm Studio, 1 ngủ, 1 ngủ + 1, 2 ngủ, 2 ngủ +1 và 3 ngủ, với diện tích sử dụng từ 27 – 98m2. Với tiêu chuẩn của một khu căn hộ cao cấp, căn hộ The Paris Ocean Park được bàn giao theo tiêu chuẩn full đồ liền tường bao gồm: Sàn gỗ, trần thạch cao, điều hòa, tủ bếp & thiết bị bếp, thiết bị vệ sinh & nhà tắm, ban công kính , thiết bị chiếu sáng, hệ thống cửa, ổ căm công tắc, …",
+    "legal_status": "Sở hữu không thời hạn.",
+    "parent_zone": "The Paris",
+    "apartment_specs": {
+      "Studio": {
+        "area": "27,1 – 30,9m²",
+        "price": "1,8 – 2,2 tỷ"
+      },
+      "1PN": {
+        "area": "42,7 – 43,5m²",
+        "price": "2,7 – 2,8 tỷ"
+      },
+      "2PN": {
+        "area": "61,1 – 74,2m²",
+        "price": "3,8 – 4,2 tỷ"
+      },
+      "3PN": {
+        "area": "83,8 – 97,4m²",
+        "price": "5,1 – 6,2 tỷ"
+      },
+      "4 ngủ": {
+        "area": "113,1m²",
+        "price": "6,7 – 7,3 tỷ"
+      },
+      "1PN+1": {
+        "area": "46,5 – 54,8m²",
+        "price": "2,9 – 3,3 tỷ"
+      },
+      "2PN+1": {
+        "area": "73,7 – 76,8m²",
+        "price": "4,6 – 4,9 tỷ"
+      }
+    },
+    "internal_amenities": [
+      "An ninh",
+      "Bể bơi ngoài trời",
+      "Chòi nghỉ hoàng gia",
+      "Phòng giải trí",
+      "Phòng sinh hoạt cộng đồng",
+      "Phòng tập Gym",
+      "Quảng trường",
+      "Smart home",
+      "Spa",
+      "Sân chơi trẻ em phong cách vườn xích đu cổ tích",
+      "Sân thể thao",
+      "Thang máy",
+      "Tổ hợp bể bơi Infinity Oasis người lớn và trẻ em chủ đề biển cả",
+      "Yoga"
+    ],
+    "external_amenities": [
+      "BBQ ngoài trời; Trung tâm thương mại Vincom Mega Mall",
+      "Cao tốc hà nội",
+      "Công viên",
+      "Deway",
+      "Hồ Ngọc Trai 24",
+      "Metro số 8",
+      "Phòng khám đa khoa Vinmec",
+      "Quốc lộ 5",
+      "Trung tâm thương mại",
+      "Trường học",
+      "Trường liên cấp",
+      "Trường quốc tế Brighton College",
+      "Tuyến metro",
+      "Vinbus",
+      "Vincom",
+      "Vinschool",
+      "Xe bus điện",
+      "Đường lý thánh tông",
+      "Đại học Vinuni"
+    ],
+    "sales_policies": [],
+    "source_url": "https://vinhomeoceanpark.com.vn/the-paris"
+  },
+  "the-palma": {
+    "name": "The Palma",
+    "introduction": "Các loại hình phát triển : Căn hộ Studio, 1PN, 1PN+, 2PN, 2PN+, 3PN, 3PN (thang máy riêng), Duplex, Penthouse và Penthouse Duplex (thang máy riêng).\n\nDiện tích : 28,6 – 93,9m2 (Studio – 3PN).\n\nTầng tiện ích : Tầng 1 và tần 13.\n\nPháp lý : Sở hữu không thời hạn.",
+    "location": "Phân khu The Palma sở hữu vị trí khoáng đạt với cả 4 mặt của các tòa căn hộ đều sở hữu tầm view rộng mở toàn cảnh Thành phố biển Ocean Park. Phân khu sở hữu 3 mặt tiền đường là Biển Hồ 1, Biển Hồ 2 và đặc biệt là trục giao thông huyết mạch Biển Hồ kết nối đường Lý Thánh Tông với Đại lộ 52m và Hồ Ngọc Trai 24,5ha.\n\nVị trí của khu đất 2 tòa căn hộ The Palma 1 và The Palma 2 phân khu The Palma:",
+    "handover_status": "Từ Quý 3/2027.",
+    "developer": "Masterise Homes",
+    "design_style": "Modern Luxury",
+    "scale": "The PALMA là phân khu căn hộ được chủ đầu tư Masterise Homes ra mắt đầu tiên tại dự án Lumiere Orient Pearl . Lấy cảm hứng từ những giá trị chắt lọc, riêng tư và yên bình, The Palma nổi bật bên làn nước trong xanh với dáng hình tựa như những tán cọ rợp mát phản chiếu xuống mặt nước, hòa quyện với không gian xanh yên bình của công viên nội khu và công viên The Foresta.",
+    "handover_standard": "Căn hộ The Palma được bàn giao theo tiêu chuẩn Hoàn thiện liền tường cao cấp với các trang thiết bị nhập khẩu từ các thương hiệu hàng đầu thế giới. Không chỉ là nơi an cư hoàn hảo, không gian nội thất sang trọng của căn hộ Palma còn khẳng định vị thế và đẳng cấp cho các chủ nhân tinh hoa.",
+    "legal_status": "Sở hữu không thời hạn.",
+    "parent_zone": "Lumiere Orient Pearl",
+    "apartment_specs": {
+      "Studio": {
+        "area": "28,6 – 31,6m²",
+        "price": "3 – 3,9 tỷ"
+      },
+      "1PN": {
+        "area": "39,3 – 41,3m²",
+        "price": "4 – 4,9 tỷ"
+      },
+      "1PN+1": {
+        "area": "46,1 – 47,2m²",
+        "price": "4,3 – 5,8 tỷ"
+      },
+      "2PN": {
+        "area": "58,8 – 63,3m²",
+        "price": "5,7 – 7,2 tỷ"
+      },
+      "2PN+1": {
+        "area": "63,5 – 69,2m²",
+        "price": "6,5 – 7,9 tỷ"
+      },
+      "3PN": {
+        "area": "78,5 – 89,2m²",
+        "price": "8,7 – 11,2 tỷ"
+      },
+      "3PN (thang máy)": {
+        "area": "92,5 – 93,9m²",
+        "price": "10,4 – 12,3 tỷ"
+      },
+      "Duplex": {
+        "area": "171 – 186,1m²",
+        "price": "liên hệ"
+      },
+      "Penthouse": {
+        "area": "Đang cập nhật",
+        "price": "Liên hệ"
+      }
+    },
+    "internal_amenities": [
+      "3PN (thang máy riêng)",
+      "Spa"
+    ],
+    "external_amenities": [
+      "Biển hồ",
+      "Crystal lagoon",
+      "Công viên",
+      "Hồ Ngọc Trai và Biển nhân tạo.",
+      "Hồ ngọc trai",
+      "Đường lý thánh tông"
+    ],
+    "sales_policies": [],
+    "source_url": "https://vinhomeoceanpark.com.vn/the-palma"
+  },
+  "masteri-waterfront": {
+    "name": "Masteri Waterfront",
+    "introduction": "Masteri Waterfront là dự án căn hộ hạng sang nằm trong quần thể đại đô thị Vinhomes Ocean Park , Gia Lâm, Hà Nội. Được phát triển bởi Masterise Homes – nhà phát triển bất động sản uy tín hàng đầu Việt Nam, dự án sở hữu vị trí độc tôn tại trung tâm của khu đô thị với thiết kế sang trọng và hệ thống tiện ích & dịch vụ đẳng cấp, mang đến cho cư dân không gian sống hoàn hảo, đáp ứng mọi nhu cầu sinh hoạt, giải trí và nghỉ dưỡng của các chủ nhân thương lưu.\n\nLoại hình : Studio, 1 ngủ + 1, 2 ngủ, 2 ngủ + 1, 3 ngủ.\n\nBàn giao : Quý 3/2023 – Quý 4/2024.\n\nQuà tặng: 12 tháng phí dịch vụ.",
+    "location": "Masteri Waterfront là dự án căn hộ hạng sang nằm trong quần thể đại đô thị Vinhomes Ocean Park , Gia Lâm, Hà Nội. Được phát triển bởi Masterise Homes – nhà phát triển bất động sản uy tín hàng đầu Việt Nam, dự án sở hữu vị trí độc tôn tại trung tâm của khu đô thị với thiết kế sang trọng và hệ thống tiện ích & dịch vụ đẳng cấp, mang đến cho cư dân không gian sống hoàn hảo, đáp ứng mọi nhu cầu sinh hoạt, giải trí và nghỉ dưỡng của các chủ nhân thương lưu.\n\nMasteri Waterfront tọa lạc tại vị trí trung tâm “Quận Biển” Vinhomes Ocean Park, được ví như trái tim của đại đô thị, nơi hội tụ mọi tiện ích và cảnh quan đẳng cấp. Sở hữu vị trí đắc địa, Masteri Waterfront Ocean Park mang đến cho cư dân không gian sống lý tưởng, kết nối hoàn hảo với mọi nhu cầu sinh hoạt, giải trí và nghỉ dưỡng.",
+    "handover_status": "Quý 3/2023 – Quý 4/2024.",
+    "developer": "Masterise Homes",
+    "design_style": "Modern Luxury",
+    "scale": "Masteri Waterfront là dự án căn hộ hạng sang nằm trong quần thể đại đô thị Vinhomes Ocean Park , Gia Lâm, Hà Nội. Được phát triển bởi Masterise Homes – nhà phát triển bất động sản uy tín hàng đầu Việt Nam, dự án sở hữu vị trí độc tôn tại trung tâm của khu đô thị với thiết kế sang trọng và hệ thống tiện ích & dịch vụ đẳng cấp, mang đến cho cư dân không gian sống hoàn hảo, đáp ứng mọi nhu cầu sinh hoạt, giải trí và nghỉ dưỡng của các chủ nhân thương lưu.",
+    "handover_standard": "Bàn giao : Quý 3/2023 – Quý 4/2024.",
+    "legal_status": "Không thời hạn.",
+    "parent_zone": "Masteri Waterfront",
+    "apartment_specs": {
+      "Studio": {
+        "area": "25 – 35m²",
+        "price": "1,3 – 2,3 tỷ"
+      },
+      "1PN": {
+        "area": "1 42 – 48m²",
+        "price": "2,2 – 3,3 tỷ"
+      },
+      "2PN": {
+        "area": "54 – 63m²",
+        "price": "3,2 – 4,2 tỷ"
+      },
+      "3PN": {
+        "area": "74 – 80m²",
+        "price": "4,5 – 7,2 tỷ"
+      },
+      "1PN+1": {
+        "area": "42 – 48m²",
+        "price": "2,2 – 3,3 tỷ"
+      },
+      "2PN+1": {
+        "area": "63 – 64m²",
+        "price": "3,6 – 4,9 tỷ"
+      }
+    },
+    "internal_amenities": [
+      "Bể bơi 4 mùa",
+      "Bể bơi trong nhà",
+      "Gym ngoài trời",
+      "Hệ thống công viên tiện ích nội khu với bể bơi ngoài trời",
+      "Phòng tập Gym",
+      "Spa",
+      "Sân chơi trẻ em",
+      "Sân thể thao",
+      "Sảnh lounge"
+    ],
+    "external_amenities": [
+      "5ha và Biển nhân tạo Crystal Largoon 6",
+      "Ban công kính cường lực thời thượng. Là một phân khu căn hộ nằm trong tổng thể Thành phố biển hồ Vinhomes Ocean Park",
+      "Bênh viện Vinmec",
+      "Deway",
+      "Hệ thống công viên tiện ích nội khu với bể bơi ngoài trời",
+      "Hồ ngọc trai",
+      "Sân bay nội bài",
+      "Trung tâm thương mại",
+      "Trường học",
+      "Trường liên cấp Vinschool",
+      "Trường quốc tế Brighton College",
+      "Vincom",
+      "Vincom mega mall",
+      "Đại học Vinuni"
+    ],
+    "sales_policies": [],
+    "source_url": "https://vinhomeoceanpark.com.vn/masteri-waterfront"
+  },
+  "masteri-lakeside": {
+    "name": "Masteri Lakeside",
+    "introduction": "Masteri Lakeside là dự án cuối cùng thuộc bộ sưu tập căn hộ Masteri Collection và là một trong những mảnh ghép hoàn thiện Thành phố biển Vinhomes Ocean Park, Gia Lâm, Hà Nội. Sở hữu thiết kế hiện đại, nội thất sang trọng và hệ tiện ích chuẩn mực, căn hộ Masteri Lakeside thực sự là không gian sống đẳng cấp và tiện nghi bậc nhất tại Đại đô thị Ocean City.\n\nDự án Masteri Lakeside tọa lạc tại giao điểm của đường Lý Thánh Tông và Đại Tây Dương, từ dự án, cư dân có thể dễ dàng kết nối các Đại tiện ích của toàn Ocean City, trung tâm Thủ đô Hà Nội và các vùng kinh tế trọng điểm Bắc Bộ với hạ tầng giao thông đường bộ hiện đại vượt bậc.\n\nVỊ TRÍ CÁC TÒA CĂN HỘ MASTERI LAKESIDE Masteri Lakeside Ocean Park bao gồm 3 tòa căn hộ cao từ 34 – 38 tầng trên tổng diện tích đất 17.930m2 và mật độ xây dựng chỉ hơn 30%. Các tòa căn hộ được được thiết kế với kiến trúc mặt ngoài sang trọng nổi bật vỡi những mảng kính Low-E cao cấp, hình thái tòa nhà thanh gọn, vững chắc giúp mở rộng tối đa tầm nhìn toàn cảnh Thành phố biển hồ và Công viên hồ điều hòa xanh khoáng đạt.\n\nCác căn hộ Masteri Lakeside được thiết kế theo phong cách hiện đại, layout căn hộ hài hòa với ban công rộng và các mảng cửa kính lớn giúp không gian bên trong luôn ngập tràn ánh sáng và khí trời tự nhiên. Các vật liệu, thiết bị hoàn thiện trong căn hộ đều đến từ những thương hiệu nổi tiếng thế giới với độ bền bỉ và tính thẩm mĩ cao, giúp mang đến sự tiện nghi và trải nghiệm xứng tầm cho gia chủ.",
+    "location": "Dự án Masteri Lakeside tọa lạc tại giao điểm của đường Lý Thánh Tông và Đại Tây Dương, từ dự án, cư dân có thể dễ dàng kết nối các Đại tiện ích của toàn Ocean City, trung tâm Thủ đô Hà Nội và các vùng kinh tế trọng điểm Bắc Bộ với hạ tầng giao thông đường bộ hiện đại vượt bậc.\n\nVỊ TRÍ CÁC TÒA CĂN HỘ MASTERI LAKESIDE Masteri Lakeside Ocean Park bao gồm 3 tòa căn hộ cao từ 34 – 38 tầng trên tổng diện tích đất 17.930m2 và mật độ xây dựng chỉ hơn 30%. Các tòa căn hộ được được thiết kế với kiến trúc mặt ngoài sang trọng nổi bật vỡi những mảng kính Low-E cao cấp, hình thái tòa nhà thanh gọn, vững chắc giúp mở rộng tối đa tầm nhìn toàn cảnh Thành phố biển hồ và Công viên hồ điều hòa xanh khoáng đạt.",
+    "handover_status": "Quý 4/2026.",
+    "developer": "Masterise Homes",
+    "design_style": "Modern Luxury",
+    "scale": "Masteri Lakeside là dự án cuối cùng thuộc bộ sưu tập căn hộ Masteri Collection và là một trong những mảnh ghép hoàn thiện Thành phố biển Vinhomes Ocean Park, Gia Lâm, Hà Nội. Sở hữu thiết kế hiện đại, nội thất sang trọng và hệ tiện ích chuẩn mực, căn hộ Masteri Lakeside thực sự là không gian sống đẳng cấp và tiện nghi bậc nhất tại Đại đô thị Ocean City.",
+    "handover_standard": "Masteri Lakeside là dự án cuối cùng thuộc bộ sưu tập căn hộ Masteri Collection và là một trong những mảnh ghép hoàn thiện Thành phố biển Vinhomes Ocean Park, Gia Lâm, Hà Nội. Sở hữu thiết kế hiện đại, nội thất sang trọng và hệ tiện ích chuẩn mực, căn hộ Masteri Lakeside thực sự là không gian sống đẳng cấp và tiện nghi bậc nhất tại Đại đô thị Ocean City.",
+    "legal_status": "Sở hữu không thời hạn.",
+    "parent_zone": "Masteri Lakeside",
+    "apartment_specs": {
+      "Studio": {
+        "area": "25,6 – 26,5m²",
+        "price": "2 – 2,3 tỷ"
+      },
+      "1PN+1": {
+        "area": "45,5 – 47m²",
+        "price": "3,0 – 3,8 tỷ"
+      },
+      "2PN": {
+        "area": "61,5 – 64m²",
+        "price": "4,2 – 5,3 tỷ"
+      },
+      "2PN+1": {
+        "area": "63,8 – 66,8m²",
+        "price": "4,6 – 5,5 tỷ"
+      },
+      "3PN": {
+        "area": "82 – 82,4m²",
+        "price": "6,2 – 7,1 tỷ"
+      },
+      "Penthouse": {
+        "area": "Đang cập nhật",
+        "price": "Đang cập nhật"
+      }
+    },
+    "internal_amenities": [
+      "Spa"
+    ],
+    "external_amenities": [
+      "Biển hồ",
+      "Công viên",
+      "Trường học và khu phố thương mại Biển Hồ 10A. Phía Tây Nam : tiếp giáp đường Biể",
+      "Tuyến metro",
+      "Đường lý thánh tông"
+    ],
+    "sales_policies": [
+      "Các đợt đóng tiền Tỷ lệ thanh toán",
+      "Đặt cọc : Ký Xác nhận đăng ký (XNĐK) 50.000.000 VNĐ",
+      "Lần 1 : Ký Văn bản thỏa thuận (VBTT) – Trong vòng 7 ngày kể từ ngày đặt cọc 10% giá trị căn hộ (không gồm VAT) đã bao gồm tiền đặt cọc",
+      "Lần 2 : Ký Hợp đồng mua bán (HĐMB) – Dự kiến tháng 1/2025 15% giá trị căn hộ (gồm VAT, đã gồm 10% giá trị căn không gồm VAT đã đóng) + 5% giá trị căn hộ (không gồm VAT) vào Thỏa thuận đặt cọc (TTĐC) đảm bảo thực hiện HĐMB",
+      "Lần 3 : ngày 15/04/2025 10% giá trị căn hộ (gồm VAT)",
+      "Lần 4 : ngày 15/07/2025 10% giá trị căn hộ (gồm VAT)",
+      "Lần 5 : ngày 15/10/2025 10% giá trị căn hộ (gồm VAT)",
+      "Lần 6 : ngày 15/01/2026 10% giá trị căn hộ (gồm VAT)",
+      "Lần 7 : ngày 15/04/2026 10% giá trị căn hộ (gồm VAT)",
+      "Lần 8 : ngày 15/07/2026 05% giá trị căn hộ (gồm VAT)",
+      "Lần 9 : Theo thông báo bàn giao nhà – Dự kiến Quý 4/2026 25% giá trị căn hộ (gồm VAT) + 100% Kinh phí bảo trì (KPBT) + VAT của 5% giá trị căn hộ",
+      "Lần 2 : Ký Hợp đồng mua bán (HĐMB) – Dự kiến tháng 1/2025 25% giá trị căn hộ (gồm VAT, đã gồm 10% giá trị căn không gồm VAT đã đóng) + 5% giá trị căn hộ (không gồm VAT) vào Thỏa thuận đặt cọc (TTĐC) đảm bảo thực hiện HĐMB",
+      "Lần 3 : ngày 15/04/2025 70% giá trị căn hộ (gồm VAT)",
+      "Lần 4 : Theo thông báo bàn giao nhà – Dự kiến Quý 4/2026 100% Kinh phí bảo trì (KPBT) + VAT của 5% giá trị căn hộ",
+      "Các đợt đóng tiền Vốn tự có Ngân hàng giải ngân",
+      "Lần 2 : Ký Hợp đồng mua bán (HĐMB) – Dự kiến tháng 1/2025 20% giá trị căn hộ (gồm VAT, đã gồm 10% giá trị căn không gồm VAT đã đóng)",
+      "Lần 3 : Trong vòng 30 ngày kể từ ngày ký HĐMB 70% giá trị căn hộ (gồm VAT)",
+      "Lần 4 : Theo thông báo bàn giao nhà – Dự kiến Quý 4/2026 10% giá trị căn hộ (gồm VAT) + 100% Kinh phí bảo trì (KPBT)",
+      "Lần 3 : Trong vòng 30 ngày kể từ ngày ký HĐMB 5% giá trị căn hộ (gồm VAT) 50% giá trị căn hộ (gồm VAT)",
+      "Lần 4 : Theo thông báo bàn giao nhà – Dự kiến Quý 4/2026 25% giá trị căn hộ (gồm VAT) + 100% Kinh phí bảo trì (KPBT) + VAT của 5% giá trị căn hộ"
+    ],
+    "source_url": "https://vinhomeoceanpark.com.vn/masteri-lakeside"
+  },
+  "the-senique-hanoi": {
+    "name": "The Senique Hanoi",
+    "introduction": "The Senique Hanoi là khu căn hộ cao cấp tọa lạc tại vị trí “trái tim” khu đô thị Vinhomes Ocean Park với không gian sống hòa quyện cùng cảnh quan xanh và hồ nước rộng mở. Là khu căn hộ được quản lý theo mô hình khu “ Compound ” khép kín đầu tiên và duy nhất tại Ocean Park, The Senique Hà Nội sở hữu không gian sống riêng tư và an ninh tuyệt đối với hệ sinh thái tiện ích đặc quyền vô cùng đẳng cấp.\n\nChủ đầu tư : Công ty Cổ phần đầu tư phát triển kinh doanh Bình Minh (Thành viên của CapitaLand Development).\n\nQuy mô: 3 tòa The Senique 1, The Senique 2 và The Senique Premier, chiều cao 37 tầng với 2.152 căn hộ.\n\n* Ghi chú : Giá bán căn hộ chung cư The Senique sẽ thay đổi tùy vào từng giai đoạn mở bán, vị trí tòa, khoảng tầng và hướng ban công.",
+    "location": "The Senique Hanoi là khu căn hộ cao cấp tọa lạc tại vị trí “trái tim” khu đô thị Vinhomes Ocean Park với không gian sống hòa quyện cùng cảnh quan xanh và hồ nước rộng mở. Là khu căn hộ được quản lý theo mô hình khu “ Compound ” khép kín đầu tiên và duy nhất tại Ocean Park, The Senique Hà Nội sở hữu không gian sống riêng tư và an ninh tuyệt đối với hệ sinh thái tiện ích đặc quyền vô cùng đẳng cấp.\n\n* Ghi chú : Giá bán căn hộ chung cư The Senique sẽ thay đổi tùy vào từng giai đoạn mở bán, vị trí tòa, khoảng tầng và hướng ban công.",
+    "handover_status": "Quý 2 năm 2027.",
+    "developer": "CapitaLand Development",
+    "design_style": "Modern Luxury Compound",
+    "scale": "The Senique Hanoi là khu căn hộ cao cấp tọa lạc tại vị trí “trái tim” khu đô thị Vinhomes Ocean Park với không gian sống hòa quyện cùng cảnh quan xanh và hồ nước rộng mở. Là khu căn hộ được quản lý theo mô hình khu “ Compound ” khép kín đầu tiên và duy nhất tại Ocean Park, The Senique Hà Nội sở hữu không gian sống riêng tư và an ninh tuyệt đối với hệ sinh thái tiện ích đặc quyền vô cùng đẳng cấp.",
+    "handover_standard": "Được xây dựng trong quần thể Đại đô thị biển Vinhomes Ocean Park đã bàn giao từ năm 2020, The Senique Hà Nội thừa hưởng hệ sinh thái tiện ích sẵn có vô cùng đa dạng và đẳng cấp. Hệ sinh thái tiện ích và dịch vụ tại Ocean Park đáp ứng trọn vẹn mọi nhu cầu của cư dân từ giáo dục, chăm sóc sức khỏe dến vui chơi, giải trí và thể dục thể thao.",
+    "legal_status": "Không thời hạn.",
+    "parent_zone": "The Senique",
+    "apartment_specs": {
+      "1PN": {
+        "area": "42m²",
+        "price": "Tầng 2 – 19 đang cập nhật!"
+      },
+      "2PN": {
+        "area": "54 – 81m²",
+        "price": "Tầng 2 – 36 đang cập nhật!"
+      },
+      "3PN": {
+        "area": "83 – 108m²",
+        "price": "Tầng 2 – 37 đang cập nhật!"
+      },
+      "4PN": {
+        "area": "154 – 188m²",
+        "price": "Tầng 37 đang cập nhật!"
+      },
+      "Duplex": {
+        "area": "118 – 190m²",
+        "price": "Tầng 2 – 37 đang cập nhật!"
+      },
+      "Penthouse": {
+        "area": "352 – 432m²",
+        "price": "Tầng 36 – 37 đang cập nhật!"
+      }
+    },
+    "internal_amenities": [
+      "An ninh",
+      "Bể bơi ngoài trời dài 50m",
+      "Compound",
+      "Nhà để xe",
+      "Phòng tập Gym & xông hơi",
+      "Spa"
+    ],
+    "external_amenities": [
+      "Biển hồ",
+      "Cao tốc hà nội",
+      "Khi tuyến tàu điện Metro số 8 hoàn thành và đưa vào sử dụng",
+      "Quốc lộ 5",
+      "Trường học",
+      "Tuyến metro",
+      "Đường lý thánh tông"
+    ],
+    "sales_policies": [
+      "Các đợt đóng tiền Tỷ lệ thanh toán",
+      "Lần 1 : Booking (đặt chỗ): Ký Quỹ có hoàn lại 200.000.000 VNĐ",
+      "Lần 2 : Ký Thỏa thuận ký Quỹ (TTKQ) – Quý 4/2024 5% giá trị căn hộ đã bao gồm tiền đặt chỗ Booking",
+      "Lần 3 : Ký Hợp đồng mua bán (HĐMB) – Quý 1/2025 15% giá trị căn hộ (gồm VAT)",
+      "Lần 4 : Quý 2/2025 5% giá trị căn hộ (gồm VAT)",
+      "Lần 5 : Quý 3/2025 5% giá trị căn hộ (gồm VAT)",
+      "Lần 6 : Quý 4/2025 5% giá trị căn hộ (gồm VAT)",
+      "Lần 7 : Quý 1/2026 5% giá trị căn hộ (gồm VAT)",
+      "Lần 8 : Quý 2/2026 5% giá trị căn hộ (gồm VAT)",
+      "Lần 9 : Quý 3/2026 5% giá trị căn hộ (gồm VAT)",
+      "Lần 10 : Theo thông báo bàn giao nhà – Dự kiến Quý 2/2027 45% giá trị căn hộ (gồm VAT) + VAT của 5% giá trị căn hộ + 100% Kinh phí bảo trì (KPBT)",
+      "Lần 10 : Theo thông báo làm sổ đỏ 5% giá trị căn hộ (không gồm VAT)",
+      "Lần 4 : Quý 2/2025 30% giá trị căn hộ (gồm VAT)",
+      "Lần 5 : Theo thông báo bàn giao nhà – Dự kiến Quý 2/2027 45% giá trị căn hộ (gồm VAT) + VAT của 5% giá trị căn hộ + 100% Kinh phí bảo trì (KPBT)",
+      "Lần 6 : Theo thông báo làm sổ đỏ 5% giá trị căn hộ (không gồm VAT)",
+      "Các đợt đóng tiền Vốn tự có Ngân hàng giải ngân",
+      "Lần 4 : Quý 2/2025 10% giá trị căn hộ (gồm VAT)",
+      "Lần 5 : Quý 4/2025 10% giá trị căn hộ (gồm VAT)",
+      "Lần 6 : Quý 2/2026 10% giá trị căn hộ (gồm VAT)",
+      "Lần 7 : Theo thông báo bàn giao nhà – Dự kiến Quý 2/2027 45% giá trị căn hộ (gồm VAT) + VAT của 5% giá trị căn hộ + 100% Kinh phí bảo trì (KPBT)"
+    ],
+    "source_url": "https://vinhomeoceanpark.com.vn/the-senique-hanoi"
+  }
+}

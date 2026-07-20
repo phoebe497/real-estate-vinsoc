@@ -1,0 +1,38 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: rgb(15 23 42);
+  background: white;
+}
+
+@layer components {
+  .container-custom {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .btn-primary {
+    @apply rounded bg-cyan-500 px-6 py-3 font-bold text-slate-950 shadow-lg shadow-cyan-500/20 transition hover:bg-cyan-300;
+  }
+
+  .btn-secondary {
+    @apply rounded border border-white/40 px-6 py-3 font-bold text-white transition hover:bg-white hover:text-slate-950;
+  }
+
+  .form-input {
+    @apply w-full rounded border border-slate-200 bg-white px-4 py-3 text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-cyan-500 focus:ring-4 focus:ring-cyan-100;
+  }
+}

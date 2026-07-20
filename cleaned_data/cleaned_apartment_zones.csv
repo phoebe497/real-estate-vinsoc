@@ -1,0 +1,69 @@
+slug,name,developer,design_style,handover_status,unit_type,area,price,internal_amenities_count,external_amenities_count,policies_count
+the-sapphire,The Sapphire,Vingroup,Modern,"The Ocean View : tương ứng với 3 phong cách khách nhau là: The Zenpark : 4 tòa căn hộ cao cấp Nhật Bản, đã hoàn thiện và bàn giao.",Studio,25 – 41m²,"1,8 – 2,2 tỷ",14,11,0
+the-sapphire,The Sapphire,Vingroup,Modern,"The Ocean View : tương ứng với 3 phong cách khách nhau là: The Zenpark : 4 tòa căn hộ cao cấp Nhật Bản, đã hoàn thiện và bàn giao.",1PN,35 – 49m²,"2,1 – 2,8 tỷ",14,11,0
+the-sapphire,The Sapphire,Vingroup,Modern,"The Ocean View : tương ứng với 3 phong cách khách nhau là: The Zenpark : 4 tòa căn hộ cao cấp Nhật Bản, đã hoàn thiện và bàn giao.",2PN,53 – 75m²,"3,2 – 4,5 tỷ",14,11,0
+the-sapphire,The Sapphire,Vingroup,Modern,"The Ocean View : tương ứng với 3 phong cách khách nhau là: The Zenpark : 4 tòa căn hộ cao cấp Nhật Bản, đã hoàn thiện và bàn giao.",3PN,73 – 105m²,"4,5 – 6,5 tỷ",14,11,0
+the-sapphire,The Sapphire,Vingroup,Modern,"The Ocean View : tương ứng với 3 phong cách khách nhau là: The Zenpark : 4 tòa căn hộ cao cấp Nhật Bản, đã hoàn thiện và bàn giao.",1PN+1,"42,5 – 43,9m²",2.3 – 2.7 tỷ,14,11,0
+the-sapphire,The Sapphire,Vingroup,Modern,"The Ocean View : tương ứng với 3 phong cách khách nhau là: The Zenpark : 4 tòa căn hộ cao cấp Nhật Bản, đã hoàn thiện và bàn giao.",2PN+1,"54,6 – 63,7m²",3.2 – 4.5 tỷ,14,11,0
+the-zenpark,The Zenpark,Vingroup,Phong cách Nhật Bản,Nhận nhà ngay.,Studio,27 – 30m²,"1,2 – 1,6 tỷ",19,8,0
+the-zenpark,The Zenpark,Vingroup,Phong cách Nhật Bản,Nhận nhà ngay.,1PN,41 – 45m²,"1,7 – 2,3 tỷ",19,8,0
+the-zenpark,The Zenpark,Vingroup,Phong cách Nhật Bản,Nhận nhà ngay.,2PN,64 – 70m²,"3,0 – 3,5 tỷ",19,8,0
+the-zenpark,The Zenpark,Vingroup,Phong cách Nhật Bản,Nhận nhà ngay.,3PN,76 – 82m²,"3,5 – 4,8 tỷ",19,8,0
+the-zenpark,The Zenpark,Vingroup,Phong cách Nhật Bản,Nhận nhà ngay.,1PN+1,47 – 52m²,"2,0 – 2,5 tỷ",19,8,0
+the-zenpark,The Zenpark,Vingroup,Phong cách Nhật Bản,Nhận nhà ngay.,2PN+1,74 – 77m²,"3,5 – 4,3 tỷ",19,8,0
+the-zenpark,The Zenpark,Vingroup,Phong cách Nhật Bản,Nhận nhà ngay.,3PN+1,"88 – 100,6m²",Đã bán hết,19,8,0
+the-pavilion,The Pavilion,Vingroup,Tropical Resort,BÀN GIAO QUÝ 1 NĂM 2024 BẢNG GIÁ GỐC – THỦ TỤC TRỰC TIẾP CĐT Tư vấn ngay,Studio,27 – 35m²,"1,4 – 1,6 tỷ",7,5,0
+the-pavilion,The Pavilion,Vingroup,Tropical Resort,BÀN GIAO QUÝ 1 NĂM 2024 BẢNG GIÁ GỐC – THỦ TỤC TRỰC TIẾP CĐT Tư vấn ngay,1PN,35 – 47m²,"1,6 – 2,3 tỷ",7,5,0
+the-pavilion,The Pavilion,Vingroup,Tropical Resort,BÀN GIAO QUÝ 1 NĂM 2024 BẢNG GIÁ GỐC – THỦ TỤC TRỰC TIẾP CĐT Tư vấn ngay,2PN,53 – 74m²,"2,4 – 3,3 tỷ",7,5,0
+the-pavilion,The Pavilion,Vingroup,Tropical Resort,BÀN GIAO QUÝ 1 NĂM 2024 BẢNG GIÁ GỐC – THỦ TỤC TRỰC TIẾP CĐT Tư vấn ngay,3PN,"78 – 99,5m²","4,1 – 5,1 tỷ",7,5,0
+the-pavilion,The Pavilion,Vingroup,Tropical Resort,BÀN GIAO QUÝ 1 NĂM 2024 BẢNG GIÁ GỐC – THỦ TỤC TRỰC TIẾP CĐT Tư vấn ngay,1PN+1,43 – 48m²,"2,0 – 2,3 tỷ",7,5,0
+the-bayfront,The Bayfront,Vingroup,Dubai Tropical,,,,,1,1,0
+the-zurich,The Zurich,Vingroup,Swiss European,dự kiến tháng 8 năm 2025.,Studio,27 – 36m²,đã bán hết!,6,10,0
+the-zurich,The Zurich,Vingroup,Swiss European,dự kiến tháng 8 năm 2025.,1PN,41 – 48m²,đã bán hết!,6,10,0
+the-zurich,The Zurich,Vingroup,Swiss European,dự kiến tháng 8 năm 2025.,2PN,54 – 75m²,đã bán hết!,6,10,0
+the-zurich,The Zurich,Vingroup,Swiss European,dự kiến tháng 8 năm 2025.,3PN,88 – 105m²,đã bán hết!,6,10,0
+the-beverly,The Beverly,Vingroup,American Glory Living,Dự kiến quý 3/2026.,Studio,28 – 36m²,"1,8 – 2,1 tỷ",15,19,0
+the-beverly,The Beverly,Vingroup,American Glory Living,Dự kiến quý 3/2026.,1PN,"43,2 – 48,6m²","2,5 – 3,2 tỷ",15,19,0
+the-beverly,The Beverly,Vingroup,American Glory Living,Dự kiến quý 3/2026.,2PN,"54,4 – 75,3m²","3,1 – 4,2 tỷ",15,19,0
+the-beverly,The Beverly,Vingroup,American Glory Living,Dự kiến quý 3/2026.,3PN,"81,5 – 109,2m²","5,3 – 6,5 tỷ",15,19,0
+the-beverly,The Beverly,Vingroup,American Glory Living,Dự kiến quý 3/2026.,2PN+1,"76,2 – 79m²","4,2 – 4,5 tỷ",15,19,0
+the-london,The London,Vingroup,British Classical,Quý 3/2026.,Studio,"26,6 – 38m²","1,7 – 2,2 tỷ",9,11,0
+the-london,The London,Vingroup,British Classical,Quý 3/2026.,1PN,"37,2 – 43,9m²","2,3 – 2,7 tỷ",9,11,0
+the-london,The London,Vingroup,British Classical,Quý 3/2026.,2PN,"56,8 – 64,2m²","3,7 – 4,1 tỷ",9,11,0
+the-london,The London,Vingroup,British Classical,Quý 3/2026.,3PN,"81,6 – 99,5m²","5 – 6,5 tỷ",9,11,0
+the-london,The London,Vingroup,British Classical,Quý 3/2026.,1PN+1,"47,6 – 48,4m²","2,8 – 3,2 tỷ",9,11,0
+the-london,The London,Vingroup,British Classical,Quý 3/2026.,2PN+1,"76,7m²","4,4 – 4,7 tỷ",9,11,0
+the-paris,The Paris,Vingroup,French Classical,,Studio,"27,1 – 30,9m²","1,8 – 2,2 tỷ",14,19,0
+the-paris,The Paris,Vingroup,French Classical,,1PN,"42,7 – 43,5m²","2,7 – 2,8 tỷ",14,19,0
+the-paris,The Paris,Vingroup,French Classical,,2PN,"61,1 – 74,2m²","3,8 – 4,2 tỷ",14,19,0
+the-paris,The Paris,Vingroup,French Classical,,3PN,"83,8 – 97,4m²","5,1 – 6,2 tỷ",14,19,0
+the-paris,The Paris,Vingroup,French Classical,,4 ngủ,"113,1m²","6,7 – 7,3 tỷ",14,19,0
+the-paris,The Paris,Vingroup,French Classical,,1PN+1,"46,5 – 54,8m²","2,9 – 3,3 tỷ",14,19,0
+the-paris,The Paris,Vingroup,French Classical,,2PN+1,"73,7 – 76,8m²","4,6 – 4,9 tỷ",14,19,0
+the-palma,The Palma,Masterise Homes,Modern Luxury,Từ Quý 3/2027.,Studio,"28,6 – 31,6m²","3 – 3,9 tỷ",2,6,0
+the-palma,The Palma,Masterise Homes,Modern Luxury,Từ Quý 3/2027.,1PN,"39,3 – 41,3m²","4 – 4,9 tỷ",2,6,0
+the-palma,The Palma,Masterise Homes,Modern Luxury,Từ Quý 3/2027.,1PN+1,"46,1 – 47,2m²","4,3 – 5,8 tỷ",2,6,0
+the-palma,The Palma,Masterise Homes,Modern Luxury,Từ Quý 3/2027.,2PN,"58,8 – 63,3m²","5,7 – 7,2 tỷ",2,6,0
+the-palma,The Palma,Masterise Homes,Modern Luxury,Từ Quý 3/2027.,2PN+1,"63,5 – 69,2m²","6,5 – 7,9 tỷ",2,6,0
+the-palma,The Palma,Masterise Homes,Modern Luxury,Từ Quý 3/2027.,3PN,"78,5 – 89,2m²","8,7 – 11,2 tỷ",2,6,0
+the-palma,The Palma,Masterise Homes,Modern Luxury,Từ Quý 3/2027.,3PN (thang máy),"92,5 – 93,9m²","10,4 – 12,3 tỷ",2,6,0
+the-palma,The Palma,Masterise Homes,Modern Luxury,Từ Quý 3/2027.,Duplex,"171 – 186,1m²",liên hệ,2,6,0
+the-palma,The Palma,Masterise Homes,Modern Luxury,Từ Quý 3/2027.,Penthouse,Đang cập nhật,Liên hệ,2,6,0
+masteri-waterfront,Masteri Waterfront,Masterise Homes,Modern Luxury,Quý 3/2023 – Quý 4/2024.,Studio,25 – 35m²,"1,3 – 2,3 tỷ",9,14,0
+masteri-waterfront,Masteri Waterfront,Masterise Homes,Modern Luxury,Quý 3/2023 – Quý 4/2024.,1PN,1 42 – 48m²,"2,2 – 3,3 tỷ",9,14,0
+masteri-waterfront,Masteri Waterfront,Masterise Homes,Modern Luxury,Quý 3/2023 – Quý 4/2024.,2PN,54 – 63m²,"3,2 – 4,2 tỷ",9,14,0
+masteri-waterfront,Masteri Waterfront,Masterise Homes,Modern Luxury,Quý 3/2023 – Quý 4/2024.,3PN,74 – 80m²,"4,5 – 7,2 tỷ",9,14,0
+masteri-waterfront,Masteri Waterfront,Masterise Homes,Modern Luxury,Quý 3/2023 – Quý 4/2024.,1PN+1,42 – 48m²,"2,2 – 3,3 tỷ",9,14,0
+masteri-waterfront,Masteri Waterfront,Masterise Homes,Modern Luxury,Quý 3/2023 – Quý 4/2024.,2PN+1,63 – 64m²,"3,6 – 4,9 tỷ",9,14,0
+masteri-lakeside,Masteri Lakeside,Masterise Homes,Modern Luxury,Quý 4/2026.,Studio,"25,6 – 26,5m²","2 – 2,3 tỷ",1,5,20
+masteri-lakeside,Masteri Lakeside,Masterise Homes,Modern Luxury,Quý 4/2026.,1PN+1,"45,5 – 47m²","3,0 – 3,8 tỷ",1,5,20
+masteri-lakeside,Masteri Lakeside,Masterise Homes,Modern Luxury,Quý 4/2026.,2PN,"61,5 – 64m²","4,2 – 5,3 tỷ",1,5,20
+masteri-lakeside,Masteri Lakeside,Masterise Homes,Modern Luxury,Quý 4/2026.,2PN+1,"63,8 – 66,8m²","4,6 – 5,5 tỷ",1,5,20
+masteri-lakeside,Masteri Lakeside,Masterise Homes,Modern Luxury,Quý 4/2026.,3PN,"82 – 82,4m²","6,2 – 7,1 tỷ",1,5,20
+masteri-lakeside,Masteri Lakeside,Masterise Homes,Modern Luxury,Quý 4/2026.,Penthouse,Đang cập nhật,Đang cập nhật,1,5,20
+the-senique-hanoi,The Senique Hanoi,CapitaLand Development,Modern Luxury Compound,Quý 2 năm 2027.,1PN,42m²,Tầng 2 – 19 đang cập nhật!,6,7,20
+the-senique-hanoi,The Senique Hanoi,CapitaLand Development,Modern Luxury Compound,Quý 2 năm 2027.,2PN,54 – 81m²,Tầng 2 – 36 đang cập nhật!,6,7,20
+the-senique-hanoi,The Senique Hanoi,CapitaLand Development,Modern Luxury Compound,Quý 2 năm 2027.,3PN,83 – 108m²,Tầng 2 – 37 đang cập nhật!,6,7,20
+the-senique-hanoi,The Senique Hanoi,CapitaLand Development,Modern Luxury Compound,Quý 2 năm 2027.,4PN,154 – 188m²,Tầng 37 đang cập nhật!,6,7,20
+the-senique-hanoi,The Senique Hanoi,CapitaLand Development,Modern Luxury Compound,Quý 2 năm 2027.,Duplex,118 – 190m²,Tầng 2 – 37 đang cập nhật!,6,7,20
+the-senique-hanoi,The Senique Hanoi,CapitaLand Development,Modern Luxury Compound,Quý 2 năm 2027.,Penthouse,352 – 432m²,Tầng 36 – 37 đang cập nhật!,6,7,20

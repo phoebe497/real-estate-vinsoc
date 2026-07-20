@@ -1,0 +1,129 @@
+﻿.lead-controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px
+}
+
+.note-section article {
+    padding: 10px 0;
+    border-bottom: 1px solid #e4eae7
+}
+
+.note-section article p {
+    margin: 0 0 3px !important;
+    color: #314a41 !important
+}
+
+.note-section article span {
+    font-size: 10px;
+    color: #80918b
+}
+
+.note-section form {
+    margin-top: 12px
+}
+
+.note-section textarea {
+    width: 100%;
+    padding: 9px;
+    border: 1px solid #d8e1dd;
+    resize: vertical
+}
+
+.note-section form button {
+    width: 100%;
+    border: 0;
+    background: #1d5944;
+    color: #fff;
+    padding: 8px;
+    cursor: pointer
+}
+
+.user-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    background: #fff;
+    border: 1px solid #dfe6e2;
+    padding: 25px;
+    margin-bottom: 16px
+}
+
+.user-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 11px;
+    color: #71817b
+}
+
+.user-form input,
+.user-form select {
+    padding: 11px;
+    border: 1px solid #d9e2de;
+    background: #f7f9f8
+}
+
+.user-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px
+}
+
+.user-grid article {
+    background: #fff;
+    border: 1px solid #dfe6e2;
+    padding: 21px;
+    display: grid;
+    grid-template-columns: 44px 1fr auto;
+    gap: 13px;
+    align-items: center
+}
+
+.user-grid article>div {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: #dceee5;
+    color: #27664f;
+    font: 22px Roboto, Arial, Helvetica, sans-serif
+}
+
+.user-grid h2 {
+    font: 20px Roboto, Arial, Helvetica, sans-serif;
+    margin: 0
+}
+
+.user-grid p {
+    font-size: 12px;
+    color: #71817b;
+    margin: 2px 0
+}
+
+.user-grid i {
+    text-transform: uppercase;
+    font-style: normal;
+    font-size: 9px;
+    color: #34775e;
+    letter-spacing: .1em
+}
+
+@media(max-width:1000px) {
+    .user-grid {
+        grid-template-columns: 1fr 1fr
+    }
+}
+
+@media(max-width:650px) {
+    .admin-sidebar nav {
+        grid-template-columns: repeat(4, 1fr)
+    }
+
+    .lead-controls,
+    .user-form,
+    .user-grid {
+        grid-template-columns: 1fr
+    }
+}

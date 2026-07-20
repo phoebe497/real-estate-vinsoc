@@ -1,0 +1,81 @@
+{
+  "scan": {
+    "date": "2026-07-16",
+    "mode": "local-rule-audit",
+    "branch": "dev",
+    "working_tree_dirty": true,
+    "engine_note": "SecuSense cloud has no local-filesystem tool; Semgrep download failed due repeated CDN resets/timeouts."
+  },
+  "summary": {
+    "high": 2,
+    "medium": 3,
+    "low": 1,
+    "total": 6
+  },
+  "findings": [
+    {
+      "id": "SEC-001",
+      "severity": "high",
+      "title": "Chat rate limit is bypassable and unbounded",
+      "locations": [
+        "src/api/agent_routes.py:69",
+        "src/api/agent_routes.py:97",
+        "src/api/agent_routes.py:235",
+        "src/api/agent_routes.py:335"
+      ],
+      "priority": 2,
+      "status": "mitigated"
+    },
+    {
+      "id": "SEC-002",
+      "severity": "high",
+      "title": "Public customer-score endpoint allows unlimited LLM calls",
+      "locations": [
+        "src/api/agent_routes.py:436",
+        "src/services/lead_scorer.py:93"
+      ],
+      "priority": 1,
+      "status": "resolved"
+    },
+    {
+      "id": "SEC-003",
+      "severity": "medium",
+      "title": "Login endpoint has no brute-force protection",
+      "locations": ["src/api/auth.py:20"],
+      "priority": 3,
+      "status": "mitigated"
+    },
+    {
+      "id": "SEC-004",
+      "severity": "medium",
+      "title": "Long-lived admin JWT is stored in localStorage",
+      "locations": [
+        "FE/src/lib/auth.ts:22",
+        "FE/src/app/admin/login/page.tsx:29",
+        "src/config.py:58"
+      ],
+      "priority": 4,
+      "status": "mitigated"
+    },
+    {
+      "id": "SEC-005",
+      "severity": "medium",
+      "title": "AI hook logs can persist and upload sensitive content",
+      "locations": [
+        "scripts/log_hook.py:85",
+        "scripts/log_hook.py:176",
+        "scripts/submit_log.py:110"
+      ],
+      "priority": 5,
+      "status": "mitigated"
+    },
+    {
+      "id": "SEC-006",
+      "severity": "low",
+      "title": "Shell execution is unnecessarily enabled in hook logging",
+      "locations": ["scripts/log_hook.py:16"],
+      "priority": 6,
+      "status": "resolved"
+    }
+  ]
+}
