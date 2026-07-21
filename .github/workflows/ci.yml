@@ -19,7 +19,7 @@ env:
 jobs:
   backend-checks:
     name: Backend lint and tests
-    runs-on: [self-hosted, Linux, X64, cohort2]
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout source
@@ -47,7 +47,7 @@ jobs:
 
   frontend-build:
     name: Frontend build
-    runs-on: [self-hosted, Linux, X64, cohort2]
+    runs-on: ubuntu-latest
 
     defaults:
       run:
@@ -74,7 +74,7 @@ jobs:
 
   docker-images:
     name: Docker build and publish
-    runs-on: [self-hosted, Linux, X64, cohort2]
+    runs-on: ubuntu-latest
     timeout-minutes: 45
     needs: [backend-checks, frontend-build]
     if: github.event_name != 'pull_request'
