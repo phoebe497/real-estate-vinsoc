@@ -1,0 +1,177 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >-
+  GitHub OIDC deployment roles and constrained SSM documents for the Ocean Park
+  single-EC2 development and production pipeline. The GitHub OIDC provider and
+  SSM-managed EC2 instance must already exist.
+
+Parameters:
+  GitHubOidcProviderArn:
+    Type: String
+    Description: ARN of the existing token.actions.githubusercontent.com OIDC provider.
+    AllowedPattern: '^arn:(aws|aws-us-gov|aws-cn):iam::[0-9]{12}:oidc-provider/token\.actions\.githubusercontent\.com$'
+  GitHubOwner:
+    Type: String
+    Description: Lowercase GitHub organization or user that owns the GHCR images.
+    AllowedPattern: '^[a-z0-9](?:[a-z0-9-]{0,37}[a-z0-9])?$'
+  GitHubRepository:
+    Type: String
+    Description: Lowercase repository name, without the owner prefix.
+    AllowedPattern: '^[a-z0-9._-]+$'
+  Ec2InstanceId:
+    Type: AWS::EC2::Instance::Id
+    Description: SSM-managed EC2 instance hosting both environments.
+  ResourcePrefix:
+    Type: String
+    Default: ocean-park
+    AllowedPattern: '^[a-zA-Z0-9-]{3,32}$'
+
+Resources:
+  DevelopmentDeployDocument:
+    Type: AWS::SSM::Document
+    Properties:
+      Name: !Sub '${ResourcePrefix}-deploy-development'
+      DocumentType: Command
+      DocumentFormat: YAML
+      UpdateMethod: NewVersion
+      Content:
+        schemaVersion: "2.2"
+        description: Deploy an immutable Ocean Park development image pair.
+        parameters:
+          BackendImage:
+            type: String
+            description: Immutable development backend image.
+            interpolationType: ENV_VAR
+            allowedPattern: !Sub '^(ghcr\.io/${GitHubOwner}/${GitHubRepository}-backend:dev-sha-[a-f0-9]{40}|ghcr\.io/${GitHubOwner}/${GitHubRepository}-backend@sha256:[a-f0-9]{64})$'
+          FrontendImage:
+            type: String
+            description: Immutable development frontend image.
+            interpolationType: ENV_VAR
+            allowedPattern: !Sub '^(ghcr\.io/${GitHubOwner}/${GitHubRepository}-frontend:dev-sha-[a-f0-9]{40}|ghcr\.io/${GitHubOwner}/${GitHubRepository}-frontend@sha256:[a-f0-9]{64})$'
+          CommitSha:
+            type: String
+            description: Full Git commit used for the deployment ledger.
+            interpolationType: ENV_VAR
+            allowedPattern: '^[a-f0-9]{40}$'
+        mainSteps:
+          - action: aws:runShellScript
+            name: deployDevelopment
+            inputs:
+              timeoutSeconds: "4200"
+              runCommand:
+                - '/usr/local/sbin/ocean-park-deploy dev "$SSM_BackendImage" "$SSM_FrontendImage" "$SSM_CommitSha"'
+
+  ProductionDeployDocument:
+    Type: AWS::SSM::Document
+    Properties:
+      Name: !Sub '${ResourcePrefix}-deploy-production'
+      DocumentType: Command
+      DocumentFormat: YAML
+      UpdateMethod: NewVersion
+      Content:
+        schemaVersion: "2.2"
+        description: Back up and deploy an immutable Ocean Park production image pair.
+        parameters:
+          BackendImage:
+            type: String
+            description: Immutable production backend image.
+            interpolationType: ENV_VAR
+            allowedPattern: !Sub '^(ghcr\.io/${GitHubOwner}/${GitHubRepository}-backend:prod-sha-[a-f0-9]{40}|ghcr\.io/${GitHubOwner}/${GitHubRepository}-backend@sha256:[a-f0-9]{64})$'
+          FrontendImage:
+            type: String
+            description: Immutable production frontend image.
+            interpolationType: ENV_VAR
+            allowedPattern: !Sub '^(ghcr\.io/${GitHubOwner}/${GitHubRepository}-frontend:prod-sha-[a-f0-9]{40}|ghcr\.io/${GitHubOwner}/${GitHubRepository}-frontend@sha256:[a-f0-9]{64})$'
+          CommitSha:
+            type: String
+            description: Full Git commit used for the deployment ledger.
+            interpolationType: ENV_VAR
+            allowedPattern: '^[a-f0-9]{40}$'
+        mainSteps:
+          - action: aws:runShellScript
+            name: deployProduction
+            inputs:
+              timeoutSeconds: "4200"
+              runCommand:
+                - '/usr/local/sbin/ocean-park-deploy prod "$SSM_BackendImage" "$SSM_FrontendImage" "$SSM_CommitSha"'
+
+  DevelopmentDeployRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub '${ResourcePrefix}-github-development-deploy'
+      MaxSessionDuration: 3600
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Federated: !Ref GitHubOidcProviderArn
+            Action: sts:AssumeRoleWithWebIdentity
+            Condition:
+              StringEquals:
+                token.actions.githubusercontent.com:aud: sts.amazonaws.com
+                token.actions.githubusercontent.com:sub: !Sub 'repo:${GitHubOwner}/${GitHubRepository}:environment:development'
+      Policies:
+        - PolicyName: InvokeDevelopmentDeploymentOnly
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Sid: InvokeFixedDocumentOnFixedInstance
+                Effect: Allow
+                Action: ssm:SendCommand
+                Resource:
+                  - !Sub 'arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:document/${DevelopmentDeployDocument}'
+                  - !Sub 'arn:${AWS::Partition}:ec2:${AWS::Region}:${AWS::AccountId}:instance/${Ec2InstanceId}'
+              - Sid: ReadOwnCommandResult
+                Effect: Allow
+                Action:
+                  - ssm:GetCommandInvocation
+                  - ssm:ListCommandInvocations
+                Resource: '*'
+
+  ProductionDeployRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub '${ResourcePrefix}-github-production-deploy'
+      MaxSessionDuration: 3600
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Federated: !Ref GitHubOidcProviderArn
+            Action: sts:AssumeRoleWithWebIdentity
+            Condition:
+              StringEquals:
+                token.actions.githubusercontent.com:aud: sts.amazonaws.com
+                token.actions.githubusercontent.com:sub: !Sub 'repo:${GitHubOwner}/${GitHubRepository}:environment:production'
+      Policies:
+        - PolicyName: InvokeProductionDeploymentOnly
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Sid: InvokeFixedDocumentOnFixedInstance
+                Effect: Allow
+                Action: ssm:SendCommand
+                Resource:
+                  - !Sub 'arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:document/${ProductionDeployDocument}'
+                  - !Sub 'arn:${AWS::Partition}:ec2:${AWS::Region}:${AWS::AccountId}:instance/${Ec2InstanceId}'
+              - Sid: ReadOwnCommandResult
+                Effect: Allow
+                Action:
+                  - ssm:GetCommandInvocation
+                  - ssm:ListCommandInvocations
+                Resource: '*'
+
+Outputs:
+  DevelopmentRoleArn:
+    Description: Set as AWS_ROLE_ARN in the GitHub development Environment.
+    Value: !GetAtt DevelopmentDeployRole.Arn
+  ProductionRoleArn:
+    Description: Set as AWS_ROLE_ARN in the GitHub production Environment.
+    Value: !GetAtt ProductionDeployRole.Arn
+  DevelopmentDocumentName:
+    Description: Set as SSM_DOCUMENT_NAME in the GitHub development Environment.
+    Value: !Ref DevelopmentDeployDocument
+  ProductionDocumentName:
+    Description: Set as SSM_DOCUMENT_NAME in the GitHub production Environment.
+    Value: !Ref ProductionDeployDocument

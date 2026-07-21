@@ -1,0 +1,35 @@
+{
+	email {$ACME_EMAIL}
+}
+
+(security_headers) {
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "strict-origin-when-cross-origin"
+	}
+}
+
+{$DEV_FRONTEND_DOMAIN} {
+	encode zstd gzip
+	import security_headers
+	reverse_proxy dev-frontend:3000
+}
+
+{$DEV_API_DOMAIN} {
+	encode zstd gzip
+	import security_headers
+	reverse_proxy dev-backend:8000
+}
+
+{$PROD_FRONTEND_DOMAIN} {
+	encode zstd gzip
+	import security_headers
+	reverse_proxy prod-frontend:3000
+}
+
+{$PROD_API_DOMAIN} {
+	encode zstd gzip
+	import security_headers
+	reverse_proxy prod-backend:8000
+}
