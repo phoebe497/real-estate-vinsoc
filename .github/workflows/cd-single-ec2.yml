@@ -1,0 +1,187 @@
+name: CD Single EC2
+
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+    branches: [dev, main]
+
+permissions:
+  actions: read
+  contents: read
+  id-token: write
+
+concurrency:
+  # Keep the latest pending commit per branch; the host flock serializes dev
+  # against production without letting a dev run evict a pending prod run.
+  group: ocean-park-single-ec2-${{ github.event.workflow_run.head_branch }}
+  cancel-in-progress: false
+
+jobs:
+  deploy-development:
+    name: Deploy development
+    if: >-
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.event == 'push' &&
+      github.event.workflow_run.head_branch == 'dev'
+    runs-on: ubuntu-latest
+    environment: development
+    steps:
+      - name: Download digest-pinned CI manifest
+        uses: actions/download-artifact@v4
+        with:
+          name: deployment-manifest-${{ github.event.workflow_run.head_sha }}
+          path: deployment
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: ${{ github.event.workflow_run.id }}
+
+      - name: Configure temporary AWS credentials
+        uses: aws-actions/configure-aws-credentials@v5
+        with:
+          role-to-assume: ${{ vars.AWS_ROLE_ARN }}
+          aws-region: ${{ vars.AWS_REGION }}
+
+      - name: Deploy immutable development images through SSM
+        shell: bash
+        env:
+          AWS_REGION: ${{ vars.AWS_REGION }}
+          EC2_INSTANCE_ID: ${{ vars.EC2_INSTANCE_ID }}
+          SSM_DOCUMENT_NAME: ${{ vars.SSM_DOCUMENT_NAME }}
+          COMMIT_SHA: ${{ github.event.workflow_run.head_sha }}
+          REPOSITORY: ${{ github.repository }}
+          MANIFEST: deployment/deployment-manifest.json
+        run: |
+          set -euo pipefail
+          repository="${REPOSITORY,,}"
+          [[ "$(jq -er '.commit' "${MANIFEST}")" == "${COMMIT_SHA}" ]]
+          [[ "$(jq -er '.environment' "${MANIFEST}")" == "dev" ]]
+          backend_image="$(jq -er '.backend_image' "${MANIFEST}")"
+          frontend_image="$(jq -er '.frontend_image' "${MANIFEST}")"
+          for component in backend frontend; do
+            if [[ "${component}" == "backend" ]]; then image="${backend_image}"; else image="${frontend_image}"; fi
+            prefix="ghcr.io/${repository}-${component}@sha256:"
+            digest="${image#"${prefix}"}"
+            [[ "${image}" == "${prefix}"* && "${digest}" =~ ^[a-f0-9]{64}$ ]]
+          done
+
+          parameters="$(jq -cn \
+            --arg backend "${backend_image}" \
+            --arg frontend "${frontend_image}" \
+            --arg sha "${COMMIT_SHA}" \
+            '{BackendImage:[$backend],FrontendImage:[$frontend],CommitSha:[$sha]}')"
+
+          command_id="$(aws ssm send-command \
+            --document-name "${SSM_DOCUMENT_NAME}" \
+            --instance-ids "${EC2_INSTANCE_ID}" \
+            --parameters "${parameters}" \
+            --comment "GitHub development deployment ${COMMIT_SHA}" \
+            --query 'Command.CommandId' \
+            --output text)"
+
+          for attempt in $(seq 1 450); do
+            status="$(aws ssm get-command-invocation \
+              --command-id "${command_id}" \
+              --instance-id "${EC2_INSTANCE_ID}" \
+              --query 'Status' --output text 2>/dev/null || true)"
+            case "${status}" in
+              Success) break ;;
+              Failed|Cancelled|TimedOut|Cancelling)
+                aws ssm get-command-invocation --command-id "${command_id}" --instance-id "${EC2_INSTANCE_ID}"
+                exit 1
+                ;;
+            esac
+            if [[ "${attempt}" -eq 450 ]]; then
+              echo "SSM status polling timed out after 75 minutes; the document execution timeout is 70 minutes." >&2
+              exit 1
+            fi
+            sleep 10
+          done
+
+          aws ssm get-command-invocation \
+            --command-id "${command_id}" \
+            --instance-id "${EC2_INSTANCE_ID}"
+
+  deploy-production:
+    name: Deploy production
+    if: >-
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.event == 'push' &&
+      github.event.workflow_run.head_branch == 'main'
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Download digest-pinned CI manifest
+        uses: actions/download-artifact@v4
+        with:
+          name: deployment-manifest-${{ github.event.workflow_run.head_sha }}
+          path: deployment
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: ${{ github.event.workflow_run.id }}
+
+      - name: Configure temporary AWS credentials
+        uses: aws-actions/configure-aws-credentials@v5
+        with:
+          role-to-assume: ${{ vars.AWS_ROLE_ARN }}
+          aws-region: ${{ vars.AWS_REGION }}
+
+      - name: Deploy immutable production images through SSM
+        shell: bash
+        env:
+          AWS_REGION: ${{ vars.AWS_REGION }}
+          EC2_INSTANCE_ID: ${{ vars.EC2_INSTANCE_ID }}
+          SSM_DOCUMENT_NAME: ${{ vars.SSM_DOCUMENT_NAME }}
+          COMMIT_SHA: ${{ github.event.workflow_run.head_sha }}
+          REPOSITORY: ${{ github.repository }}
+          MANIFEST: deployment/deployment-manifest.json
+        run: |
+          set -euo pipefail
+          repository="${REPOSITORY,,}"
+          [[ "$(jq -er '.commit' "${MANIFEST}")" == "${COMMIT_SHA}" ]]
+          [[ "$(jq -er '.environment' "${MANIFEST}")" == "prod" ]]
+          backend_image="$(jq -er '.backend_image' "${MANIFEST}")"
+          frontend_image="$(jq -er '.frontend_image' "${MANIFEST}")"
+          for component in backend frontend; do
+            if [[ "${component}" == "backend" ]]; then image="${backend_image}"; else image="${frontend_image}"; fi
+            prefix="ghcr.io/${repository}-${component}@sha256:"
+            digest="${image#"${prefix}"}"
+            [[ "${image}" == "${prefix}"* && "${digest}" =~ ^[a-f0-9]{64}$ ]]
+          done
+
+          parameters="$(jq -cn \
+            --arg backend "${backend_image}" \
+            --arg frontend "${frontend_image}" \
+            --arg sha "${COMMIT_SHA}" \
+            '{BackendImage:[$backend],FrontendImage:[$frontend],CommitSha:[$sha]}')"
+
+          command_id="$(aws ssm send-command \
+            --document-name "${SSM_DOCUMENT_NAME}" \
+            --instance-ids "${EC2_INSTANCE_ID}" \
+            --parameters "${parameters}" \
+            --comment "GitHub production deployment ${COMMIT_SHA}" \
+            --query 'Command.CommandId' \
+            --output text)"
+
+          for attempt in $(seq 1 450); do
+            status="$(aws ssm get-command-invocation \
+              --command-id "${command_id}" \
+              --instance-id "${EC2_INSTANCE_ID}" \
+              --query 'Status' --output text 2>/dev/null || true)"
+            case "${status}" in
+              Success) break ;;
+              Failed|Cancelled|TimedOut|Cancelling)
+                aws ssm get-command-invocation --command-id "${command_id}" --instance-id "${EC2_INSTANCE_ID}"
+                exit 1
+                ;;
+            esac
+            if [[ "${attempt}" -eq 450 ]]; then
+              echo "SSM status polling timed out after 75 minutes; the document execution timeout is 70 minutes." >&2
+              exit 1
+            fi
+            sleep 10
+          done
+
+          aws ssm get-command-invocation \
+            --command-id "${command_id}" \
+            --instance-id "${EC2_INSTANCE_ID}"

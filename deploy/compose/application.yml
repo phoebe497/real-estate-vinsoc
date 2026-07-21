@@ -1,0 +1,105 @@
+services:
+  database:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:?Set POSTGRES_DB in the environment file}
+      POSTGRES_USER: ${POSTGRES_USER:?Set POSTGRES_USER in the environment file}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in the environment file}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - private
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    deploy:
+      resources:
+        limits:
+          cpus: ${DATABASE_CPU_LIMIT:-1.0}
+          memory: ${DATABASE_MEMORY_LIMIT:-1G}
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  backend:
+    image: ${BACKEND_IMAGE:?Set BACKEND_IMAGE in the environment file}
+    env_file:
+      - ${APP_ENV_FILE:?Set APP_ENV_FILE to the absolute environment-file path}
+    environment:
+      # Keep this explicit instead of composing a URL from POSTGRES_PASSWORD:
+      # reserved URL characters in a strong password must be percent-encoded.
+      DATABASE_URL: ${DATABASE_URL:?Set DATABASE_URL in the environment file}
+      PGPASSWORD: ${POSTGRES_PASSWORD}
+      AUTO_CREATE_TABLES: "false"
+      AUTO_SEED_CATALOG: ${AUTO_SEED_CATALOG:-true}
+    command: ["sh", "-c", "python -m alembic upgrade head && python -m uvicorn src.main:app --host 0.0.0.0 --port 8000"]
+    depends_on:
+      database:
+        condition: service_healthy
+    networks:
+      private: {}
+      edge:
+        aliases:
+          - ${DEPLOY_ENV:?Set DEPLOY_ENV to dev or prod}-backend
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/ready')"]
+      interval: 20s
+      timeout: 10s
+      retries: 6
+      start_period: 20s
+    deploy:
+      resources:
+        limits:
+          cpus: ${BACKEND_CPU_LIMIT:-1.0}
+          memory: ${BACKEND_MEMORY_LIMIT:-1G}
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  frontend:
+    image: ${FRONTEND_IMAGE:?Set FRONTEND_IMAGE in the environment file}
+    environment:
+      API_URL_INTERNAL: http://backend:8000/api/v1
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks:
+      private: {}
+      edge:
+        aliases:
+          - ${DEPLOY_ENV:?Set DEPLOY_ENV to dev or prod}-frontend
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://localhost:3000').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"]
+      interval: 20s
+      timeout: 10s
+      retries: 6
+      start_period: 20s
+    deploy:
+      resources:
+        limits:
+          cpus: ${FRONTEND_CPU_LIMIT:-0.75}
+          memory: ${FRONTEND_MEMORY_LIMIT:-768M}
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+networks:
+  private:
+    internal: true
+  edge:
+    external: true
+    name: ocean-park-edge
+
+volumes:
+  postgres_data:

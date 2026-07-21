@@ -1,0 +1,213 @@
+name: CI
+
+on:
+  push:
+    branches: [main, dev]
+    tags: ["v*.*.*"]
+  pull_request:
+    branches: [main, dev]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  REGISTRY: ghcr.io
+  BACKEND_IMAGE_NAME: ${{ github.repository }}-backend
+  FRONTEND_IMAGE_NAME: ${{ github.repository }}-frontend
+
+jobs:
+  backend-checks:
+    name: Backend lint and tests
+    runs-on: [self-hosted, Linux, X64, cohort2]
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install backend dependencies
+        run: python -m pip install -e ".[dev]"
+
+      - name: Lint backend
+        run: ruff check src tests
+
+      - name: Run backend tests
+        run: pytest tests -v --tb=short
+        env:
+          APP_ENV: test
+          OPENAI_API_KEY: test-key
+          JWT_SECRET_KEY: test-jwt-secret-key-with-at-least-32-chars
+          ADMIN_PASSWORD: test-admin-password
+
+  frontend-build:
+    name: Frontend build
+    runs-on: [self-hosted, Linux, X64, cohort2]
+
+    defaults:
+      run:
+        working-directory: FE
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: FE/package-lock.json
+
+      - name: Install frontend dependencies
+        run: npm ci
+
+      - name: Build frontend
+        run: npm run build
+        env:
+          NEXT_PUBLIC_API_URL: http://localhost:8000/api/v1
+
+  docker-images:
+    name: Docker build and publish
+    runs-on: [self-hosted, Linux, X64, cohort2]
+    timeout-minutes: 45
+    needs: [backend-checks, frontend-build]
+    if: github.event_name != 'pull_request'
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Verify Docker on runner
+        run: |
+          docker version
+          docker buildx version
+
+      - name: Set lowercase image names
+        shell: bash
+        run: |
+          echo "BACKEND_IMAGE=${REGISTRY}/${BACKEND_IMAGE_NAME,,}" >> "$GITHUB_ENV"
+          echo "FRONTEND_IMAGE=${REGISTRY}/${FRONTEND_IMAGE_NAME,,}" >> "$GITHUB_ENV"
+
+          case "${GITHUB_REF}" in
+            refs/heads/dev)
+              echo "FRONTEND_API_URL=${{ vars.DEVELOPMENT_NEXT_PUBLIC_API_URL }}" >> "$GITHUB_ENV"
+              ;;
+            refs/heads/main)
+              echo "FRONTEND_API_URL=${{ vars.PRODUCTION_NEXT_PUBLIC_API_URL }}" >> "$GITHUB_ENV"
+              ;;
+            refs/tags/v*)
+              echo "FRONTEND_API_URL=${{ vars.PRODUCTION_NEXT_PUBLIC_API_URL }}" >> "$GITHUB_ENV"
+              ;;
+            *)
+              echo "FRONTEND_API_URL=${{ vars.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1' }}" >> "$GITHUB_ENV"
+              ;;
+          esac
+
+      - name: Validate environment-specific frontend URL
+        if: github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v')
+        shell: bash
+        run: |
+          if [[ -z "${FRONTEND_API_URL}" ]]; then
+            echo "Missing the branch/tag-specific frontend API URL repository variable for ${GITHUB_REF}." >&2
+            exit 1
+          fi
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Docker metadata for backend
+        id: backend_meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.BACKEND_IMAGE }}
+          tags: |
+            type=raw,value=dev-sha-${{ github.sha }},enable=${{ github.ref == 'refs/heads/dev' }}
+            type=raw,value=prod-sha-${{ github.sha }},enable=${{ github.ref == 'refs/heads/main' }}
+            type=ref,event=branch
+            type=ref,event=tag
+
+      - name: Docker metadata for frontend
+        id: frontend_meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.FRONTEND_IMAGE }}
+          tags: |
+            type=raw,value=dev-sha-${{ github.sha }},enable=${{ github.ref == 'refs/heads/dev' }}
+            type=raw,value=prod-sha-${{ github.sha }},enable=${{ github.ref == 'refs/heads/main' }}
+            type=ref,event=branch
+            type=ref,event=tag
+
+      - name: Build and push backend image
+        id: backend_build
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: Dockerfile
+          push: true
+          tags: ${{ steps.backend_meta.outputs.tags }}
+          labels: ${{ steps.backend_meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Build and push frontend image
+        id: frontend_build
+        uses: docker/build-push-action@v6
+        with:
+          context: FE
+          file: FE/Dockerfile
+          push: true
+          build-args: |
+            NEXT_PUBLIC_API_URL=${{ env.FRONTEND_API_URL }}
+          tags: ${{ steps.frontend_meta.outputs.tags }}
+          labels: ${{ steps.frontend_meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Create digest-pinned deployment manifest
+        if: github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/main'
+        shell: bash
+        env:
+          BACKEND_DIGEST: ${{ steps.backend_build.outputs.digest }}
+          FRONTEND_DIGEST: ${{ steps.frontend_build.outputs.digest }}
+        run: |
+          set -euo pipefail
+          repository="${GITHUB_REPOSITORY,,}"
+          if [[ "${GITHUB_REF}" == "refs/heads/dev" ]]; then
+            environment=dev
+          else
+            environment=prod
+          fi
+          [[ "${BACKEND_DIGEST}" =~ ^sha256:[a-f0-9]{64}$ ]]
+          [[ "${FRONTEND_DIGEST}" =~ ^sha256:[a-f0-9]{64}$ ]]
+          jq -n \
+            --arg commit "${GITHUB_SHA}" \
+            --arg environment "${environment}" \
+            --arg backend_image "ghcr.io/${repository}-backend@${BACKEND_DIGEST}" \
+            --arg frontend_image "ghcr.io/${repository}-frontend@${FRONTEND_DIGEST}" \
+            '{commit:$commit,environment:$environment,backend_image:$backend_image,frontend_image:$frontend_image}' \
+            > deployment-manifest.json
+
+      - name: Upload digest-pinned deployment manifest
+        if: github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/main'
+        uses: actions/upload-artifact@v4
+        with:
+          name: deployment-manifest-${{ github.sha }}
+          path: deployment-manifest.json
+          if-no-files-found: error
+          retention-days: 14

@@ -1,0 +1,44 @@
+services:
+  caddy:
+    image: caddy:2-alpine
+    environment:
+      ACME_EMAIL: ${ACME_EMAIL:?Set ACME_EMAIL in the edge environment file}
+      DEV_FRONTEND_DOMAIN: ${DEV_FRONTEND_DOMAIN:?Set DEV_FRONTEND_DOMAIN}
+      DEV_API_DOMAIN: ${DEV_API_DOMAIN:?Set DEV_API_DOMAIN}
+      PROD_FRONTEND_DOMAIN: ${PROD_FRONTEND_DOMAIN:?Set PROD_FRONTEND_DOMAIN}
+      PROD_API_DOMAIN: ${PROD_API_DOMAIN:?Set PROD_API_DOMAIN}
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ${CADDYFILE_PATH:-../caddy/Caddyfile.single-ec2}:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    networks:
+      - edge
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "caddy", "validate", "--config", "/etc/caddy/Caddyfile"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    deploy:
+      resources:
+        limits:
+          cpus: ${CADDY_CPU_LIMIT:-0.5}
+          memory: ${CADDY_MEMORY_LIMIT:-256M}
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+networks:
+  edge:
+    external: true
+    name: ocean-park-edge
+
+volumes:
+  caddy_data:
+  caddy_config:
