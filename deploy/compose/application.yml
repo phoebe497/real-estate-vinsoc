@@ -68,6 +68,9 @@ services:
     image: ${FRONTEND_IMAGE:?Set FRONTEND_IMAGE in the environment file}
     environment:
       API_URL_INTERNAL: http://backend:8000/api/v1
+      # Docker injects the container ID as HOSTNAME. Next standalone reads this
+      # variable as its bind address, so override it to listen on every interface.
+      HOSTNAME: "0.0.0.0"
     depends_on:
       backend:
         condition: service_healthy
@@ -78,7 +81,7 @@ services:
           - ${DEPLOY_ENV:?Set DEPLOY_ENV to dev or prod}-frontend
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "node", "-e", "fetch('http://localhost:3000').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"]
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"]
       interval: 20s
       timeout: 10s
       retries: 6
