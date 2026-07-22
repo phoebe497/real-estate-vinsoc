@@ -142,7 +142,7 @@ Provider URL: https://token.actions.githubusercontent.com
 Audience: sts.amazonaws.com
 ```
 
-Validate and deploy `deploy/aws/single-ec2-cicd.yml` with lowercase owner/repository values and the existing provider ARN and EC2 instance ID:
+Validate and deploy `deploy/aws/single-ec2-cicd.yml` with lowercase owner/repository values, their immutable numeric GitHub IDs, and the existing provider ARN and EC2 instance ID. Obtain the IDs with `gh api users/OWNER --jq .id` and `gh api repos/OWNER/REPOSITORY --jq .id`:
 
 ```bash
 aws cloudformation validate-template \
@@ -155,11 +155,13 @@ aws cloudformation deploy \
   --parameter-overrides \
     GitHubOidcProviderArn=arn:aws:iam::ACCOUNT_ID:oidc-provider/token.actions.githubusercontent.com \
     GitHubOwner=owner \
+    GitHubOwnerId=12345678 \
     GitHubRepository=repository \
+    GitHubRepositoryId=123456789 \
     Ec2InstanceId=i-0123456789abcdef0
 ```
 
-The two role trust policies accept only the matching GitHub repository and Environment subject. Each role can invoke only its environment's custom SSM document on the specified instance. The documents accept only exact environment-qualified GHCR image patterns and call `/usr/local/sbin/ocean-park-deploy`; they do not grant arbitrary `AWS-RunShellScript` access.
+The two role trust policies accept only the matching immutable GitHub repository and Environment subject (`repo:OWNER@OWNER_ID/REPOSITORY@REPOSITORY_ID:environment:ENVIRONMENT`). Each role can invoke only its environment's custom SSM document on the specified instance. The documents accept only exact environment-qualified GHCR image patterns and call `/usr/local/sbin/ocean-park-deploy`; they do not grant arbitrary `AWS-RunShellScript` access.
 
 ## 6. GitHub configuration
 
@@ -179,7 +181,7 @@ EC2_INSTANCE_ID
 SSM_DOCUMENT_NAME
 ```
 
-Restrict `development` to `dev` and `production` to `main`. Configure required reviewers for production where the GitHub plan supports it. Protect both branches. The workflow uses OIDC temporary credentials; do not add AWS access keys or SSH keys.
+The CD workflow uses `workflow_run`, which GitHub loads from the default branch. Consequently, GitHub evaluates both jobs' Environment deployment branch policies against `main`, even though the development job separately and strictly validates `github.event.workflow_run.head_branch == 'dev'`. Allow `main` in the `development` Environment deployment branch policy, and restrict `production` to `main`. Configure required reviewers for production where the GitHub plan supports it. Protect both branches. The workflow uses OIDC temporary credentials; do not add AWS access keys or SSH keys.
 
 `CI` records the exact backend/frontend build digests in a run-scoped deployment manifest artifact. `cd-single-ec2.yml` is triggered by that successful push run, downloads the artifact from the triggering run ID, validates its commit, environment, repository, and digests, then sends that exact pair through SSM. GitHub requires a `workflow_run` workflow to exist on the default branch, so merge the reviewed workflow to the default branch before expecting automatic `dev` deployment.
 

@@ -25,6 +25,9 @@ jobs:
       github.event.workflow_run.event == 'push' &&
       github.event.workflow_run.head_branch == 'dev'
     runs-on: ubuntu-latest
+    # A workflow_run workflow is loaded from the default branch, so GitHub
+    # evaluates environment deployment branch policies against main even when
+    # the triggering CI run's head_branch (validated above) is dev.
     environment: development
     steps:
       - name: Download digest-pinned CI manifest

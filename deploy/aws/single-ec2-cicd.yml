@@ -13,10 +13,18 @@ Parameters:
     Type: String
     Description: Lowercase GitHub organization or user that owns the GHCR images.
     AllowedPattern: '^[a-z0-9](?:[a-z0-9-]{0,37}[a-z0-9])?$'
+  GitHubOwnerId:
+    Type: String
+    Description: Immutable numeric GitHub organization or user ID used in OIDC subjects.
+    AllowedPattern: '^[0-9]+$'
   GitHubRepository:
     Type: String
     Description: Lowercase repository name, without the owner prefix.
     AllowedPattern: '^[a-z0-9._-]+$'
+  GitHubRepositoryId:
+    Type: String
+    Description: Immutable numeric GitHub repository ID used in OIDC subjects.
+    AllowedPattern: '^[0-9]+$'
   Ec2InstanceId:
     Type: AWS::EC2::Instance::Id
     Description: SSM-managed EC2 instance hosting both environments.
@@ -109,7 +117,7 @@ Resources:
             Condition:
               StringEquals:
                 token.actions.githubusercontent.com:aud: sts.amazonaws.com
-                token.actions.githubusercontent.com:sub: !Sub 'repo:${GitHubOwner}/${GitHubRepository}:environment:development'
+                token.actions.githubusercontent.com:sub: !Sub 'repo:${GitHubOwner}@${GitHubOwnerId}/${GitHubRepository}@${GitHubRepositoryId}:environment:development'
       Policies:
         - PolicyName: InvokeDevelopmentDeploymentOnly
           PolicyDocument:
@@ -143,7 +151,7 @@ Resources:
             Condition:
               StringEquals:
                 token.actions.githubusercontent.com:aud: sts.amazonaws.com
-                token.actions.githubusercontent.com:sub: !Sub 'repo:${GitHubOwner}/${GitHubRepository}:environment:production'
+                token.actions.githubusercontent.com:sub: !Sub 'repo:${GitHubOwner}@${GitHubOwnerId}/${GitHubRepository}@${GitHubRepositoryId}:environment:production'
       Policies:
         - PolicyName: InvokeProductionDeploymentOnly
           PolicyDocument:
