@@ -53,4 +53,4 @@
 | MinhQuang | Hoàn thiện README, architecture diagram, deliverables checklist, pitch/video docs | Done | README, docs, presentation source | 5h |
 | MinhQuang | Chạy quality gates cuối: Ruff, compileall, pytest, FE build | Done | 228 passed, FE build pass | 3h |
 
-**Tổng kết ngày:** Bộ deliverables đã sẵn sàng ở mức repo, live URL đã có tại `https://c2-app-005.quangtm.site`; phần còn lại trước khi nộp là video demo, pitch deck export và 5 transcript/screenshot live.
+**Tổng kết ngày:** Bộ deliverables đã sẵn sàng ở mức repo, live URL hiện tại là `https://vsocintern.online`; phần còn lại trước khi nộp là video demo, pitch deck export và 5 transcript/screenshot live.

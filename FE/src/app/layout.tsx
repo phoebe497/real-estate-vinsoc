@@ -22,7 +22,7 @@ export default function RootLayout({
     <html lang="vi">
       <head>
         <link
-          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&amp;display=swap"
           rel="stylesheet"
         />
       </head>

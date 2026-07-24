@@ -31,8 +31,8 @@ Latest result:
 
 The live app is available at:
 
-- Public app: `https://c2-app-005.quangtm.site`
-- Admin CRM: `https://c2-app-005.quangtm.site/admin/login`
+- Public app: `https://vsocintern.online`
+- Admin CRM: `https://vsocintern.online/admin/login`
 - Demo account: `admin@gmail.com`
 - Demo password: `admin123456789Aa@`
 

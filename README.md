@@ -91,8 +91,8 @@ npm run dev
 
 Live demo:
 
-- Public app: `https://c2-app-005.quangtm.site`
-- Admin CRM: `https://c2-app-005.quangtm.site/admin/login`
+- Public app: `https://vsocintern.online`
+- Admin CRM: `https://vsocintern.online/admin/login`
 - Demo admin account: `admin@gmail.com`
 - Demo admin password: `admin123456789Aa@`
 - Video demo Google Drive: `https://drive.google.com/drive/folders/1I12vmhLrdAU4HzOzot6R_3IydwpIAieW`
@@ -196,6 +196,12 @@ python -m uvicorn src.main:app --reload
 
 Pipeline pgvector: `chunk -> embed -> knowledge_chunks.embedding -> vector/full-text top-k -> Reciprocal Rank Fusion -> context + citations -> LLM`.
 
+## Security scanning
+
+Semgrep SAST và OWASP ZAP DAST chạy bằng Docker, xuất JSON khi chạy local và
+SARIF trong GitHub Actions. Xem lệnh chạy và cấu hình tại
+[`docs/security-scanning.md`](docs/security-scanning.md).
+
 ## Quality & Testing
 
 ```powershell
@@ -238,7 +244,7 @@ Latest local verification:
 | 2 | README.md | Ready | `README.md` |
 | 3 | Architecture Diagram | Ready | `ARCHITECTURE.md` là file chính thức; `docs/architecture_diagram.md` là bản diagram phụ |
 | 4 | AI Logs | Ready | `.ai-log/` support, `scripts/log_*.py`, LangSmith/OpenRouter metadata trong `.env.example` |
-| 5 | Live URL | Ready | `https://c2-app-005.quangtm.site`; admin tại `https://c2-app-005.quangtm.site/admin/login` |
+| 5 | Live URL | Ready | `https://vsocintern.online`; admin tại `https://vsocintern.online/admin/login` |
 | 6 | Video Demo | Ready | [Google Drive video + pitch deck](https://drive.google.com/drive/folders/1I12vmhLrdAU4HzOzot6R_3IydwpIAieW) |
 | 7 | Pitch Deck | Ready | [Google Drive video + pitch deck](https://drive.google.com/drive/folders/1I12vmhLrdAU4HzOzot6R_3IydwpIAieW), `presentation/pitch_deck.md` |
 | 8 | Development Journal | Ready | `JOURNAL.md`, `docs/reportsDevOps` |

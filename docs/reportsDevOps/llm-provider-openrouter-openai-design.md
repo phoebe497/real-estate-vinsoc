@@ -27,7 +27,7 @@ LLM_PROVIDER=openrouter
 OPENROUTER_API_KEY=<your-openrouter-api-key>
 OPENROUTER_BASE_URL=https://openrouter.ai/api/v1
 OPENROUTER_MODEL=<exact-openrouter-model-id>
-OPENROUTER_SITE_URL=http://103.149.87.83:3000
+OPENROUTER_SITE_URL=https://dev.vsocintern.online
 OPENROUTER_APP_NAME=Ocean Park AI Advisor
 ```
 
@@ -82,7 +82,9 @@ OPENROUTER_MODEL=
 Sau khi sửa `.env`, restart backend:
 
 ```bash
-docker compose --env-file .env -p ocean-park-staging -f docker-compose.registry.yml up -d --force-recreate backend
+sudo /usr/local/sbin/ocean-park-deploy dev <full-commit-sha> \
+  ghcr.io/phoebe497/real-estate-vinsoc-backend@sha256:<digest> \
+  ghcr.io/phoebe497/real-estate-vinsoc-frontend@sha256:<digest>
 ```
 
 Kiểm tra trạng thái agent:
@@ -115,6 +117,7 @@ Nếu response vẫn báo AI chưa cấu hình, kiểm tra lại key/model/base 
 Nếu HTTP 500, xem log:
 
 ```bash
-docker compose --env-file .env -p ocean-park-staging -f docker-compose.registry.yml logs backend --tail 200
+sudo docker compose --env-file /etc/ocean-park/dev.env -p ocean-park-dev \
+  -f /opt/ocean-park/shared/application.yml logs backend --tail 200
 ```
 

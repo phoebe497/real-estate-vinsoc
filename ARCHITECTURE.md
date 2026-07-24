@@ -144,8 +144,8 @@ Main tables include:
 
 Live URLs:
 
-- Public app: `https://c2-app-005.quangtm.site`
-- Admin CRM: `https://c2-app-005.quangtm.site/admin/login`
+- Public app: `https://vsocintern.online`
+- Admin CRM: `https://vsocintern.online/admin/login`
 - Demo admin account: `admin@gmail.com`
 - Demo admin password: `admin123456789Aa@`
 

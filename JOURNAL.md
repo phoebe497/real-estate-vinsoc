@@ -110,7 +110,7 @@
 | Khó khăn | Cách xử lý | Kết quả |
 |---|---|---|
 | Deliverables nằm rải rác nhiều file | Tạo checklist cuối cùng và link đến từng artifact | Reviewer dễ kiểm tra hơn |
-| Cần cung cấp link thật cho BTC chấm | Cập nhật live URL `https://c2-app-005.quangtm.site` và admin URL `/admin/login` vào tài liệu | Reviewer có thể truy cập sản phẩm trực tiếp |
+| Cần cung cấp link thật cho BTC chấm | Cập nhật live URL `https://vsocintern.online` và admin URL `/admin/login` vào tài liệu | Reviewer có thể truy cập sản phẩm trực tiếp |
 | README cũ chứa nhiều ghi chú integration quan trọng | Đổi sang `README_integration.md` thay vì xóa | Không mất context kỹ thuật |
 
 ### Bài học

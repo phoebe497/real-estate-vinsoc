@@ -114,22 +114,22 @@ Compiled successfully
 Sau khi push code và GitHub Actions build/publish image mới thành công, SSH vào VPS và chạy:
 
 ```bash
-cd /opt/ocean-park-advisor
+cd /opt/ocean-park/dev
 git pull origin dev
-bash scripts/deploy/staging_deploy.sh
+bash scripts/deploy/verify_single_ec2.sh
 ```
 
 Kiểm tra backend:
 
 ```bash
-curl http://103.149.87.83:8000/ready
-curl http://103.149.87.83:8000/agent/status
+curl https://api-dev.vsocintern.online/ready
+curl https://api-dev.vsocintern.online/agent/status
 ```
 
 Kiểm tra chat:
 
 ```bash
-curl -X POST http://103.149.87.83:8000/agent/chat \
+curl -X POST https://api-dev.vsocintern.online/agent/chat \
   -H "Content-Type: application/json" \
   -d '{
     "session_id": "manual-test-0-9-0",
@@ -152,7 +152,7 @@ Kỳ vọng:
 Kiểm tra lead migration:
 
 ```bash
-curl -X POST http://103.149.87.83:8000/api/v1/leads \
+curl -X POST https://api-dev.vsocintern.online/api/v1/leads \
   -H "Content-Type: application/json" \
   -d '{
     "name": "Manual Test 0.9.0",

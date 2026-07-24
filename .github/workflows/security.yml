@@ -1,0 +1,179 @@
+name: Security scanning
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main, dev]
+  schedule:
+    - cron: "17 19 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  sast:
+    name: Semgrep SAST
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      security-events: write
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Prepare report directory
+        run: mkdir -p security-reports && chmod 0777 security-reports
+
+      - name: Scan with Semgrep
+        env:
+          SEMGREP_FORMAT: sarif
+          SEMGREP_REPORT: semgrep.sarif
+        run: docker compose -p security-sast -f compose.security.yml run --rm semgrep
+
+      - name: Upload Semgrep SARIF to code scanning
+        if: always() && hashFiles('security-reports/semgrep.sarif') != ''
+        uses: github/codeql-action/upload-sarif@v4
+        with:
+          sarif_file: security-reports/semgrep.sarif
+          category: semgrep-sast
+
+      - name: Archive Semgrep report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: semgrep-sarif
+          path: security-reports/semgrep.sarif
+          if-no-files-found: warn
+          retention-days: 30
+
+  dast:
+    name: OWASP ZAP DAST
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: read
+      security-events: write
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Prepare isolated test configuration
+        shell: bash
+        run: |
+          cp .env.example .env
+          mkdir -p security-reports/.zap-home
+          chmod 0777 security-reports security-reports/.zap-home
+
+      - name: Start application
+        env:
+          AUTO_SEED_CATALOG: "false"
+        run: >-
+          docker compose -p security-dast
+          -f docker-compose.yml -f compose.dast.yml
+          up -d --build frontend
+
+      - name: Wait for application readiness
+        shell: bash
+        run: |
+          for attempt in $(seq 1 60); do
+            if curl --fail --silent http://localhost:8000/ready >/dev/null &&
+               curl --fail --silent http://localhost:3000 >/dev/null; then
+              exit 0
+            fi
+            sleep 5
+          done
+          docker compose -p security-dast \
+            -f docker-compose.yml -f compose.dast.yml logs --no-color
+          exit 1
+
+      - name: ZAP baseline scan (frontend)
+        env:
+          ZAP_TARGET: http://frontend:3000
+          ZAP_REPORT: zap-frontend.json
+        run: >-
+          docker compose -p security-dast
+          -f docker-compose.yml -f compose.dast.yml
+          -f compose.security.yml
+          run --rm --no-deps zap-baseline
+
+      - name: ZAP baseline scan (backend Swagger)
+        env:
+          ZAP_API_TARGET: http://backend:8000/docs
+          ZAP_API_REPORT: zap-backend.json
+        run: >-
+          docker compose -p security-dast
+          -f docker-compose.yml -f compose.dast.yml
+          -f compose.security.yml
+          run --rm --no-deps zap-api
+
+      - name: Convert ZAP JSON to SARIF
+        run: >-
+          python scripts/security/zap_json_to_sarif.py
+          security-reports/zap-frontend.json
+          security-reports/zap-backend.json
+          --output security-reports/zap.sarif
+
+      - name: Upload ZAP SARIF to code scanning
+        if: always() && hashFiles('security-reports/zap.sarif') != ''
+        uses: github/codeql-action/upload-sarif@v4
+        with:
+          sarif_file: security-reports/zap.sarif
+          category: owasp-zap-dast
+
+      - name: Archive ZAP JSON and SARIF reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: owasp-zap-reports
+          path: |
+            security-reports/zap-frontend.json
+            security-reports/zap-backend.json
+            security-reports/zap.sarif
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Application logs
+        if: failure()
+        run: docker compose -p security-dast logs --no-color
+
+      - name: Stop application
+        if: always()
+        run: docker compose -p security-dast down --volumes --remove-orphans
+
+  aggregate:
+    name: Aggregate security data lake
+    if: always()
+    needs: [sast, dast]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Download available scanner artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: "*"
+          path: security-inputs
+          merge-multiple: true
+
+      - name: Normalize reports
+        run: >-
+          python scripts/security/aggregate_security_reports.py
+          security-inputs
+          --output-dir security-data-lake
+
+      - name: Archive unified security data lake
+        uses: actions/upload-artifact@v4
+        with:
+          name: unified-security-data-lake
+          path: security-data-lake
+          if-no-files-found: error
+          retention-days: 30

@@ -131,7 +131,7 @@ COPY --from=builder --chown=nextjs:nodejs /app/public ./public
 Kết quả xác nhận trong Docker image:
 
 ```bash
-docker run --rm c2-app-005-frontend:latest sh -c "find public/media_files -type f | wc -l"
+docker run --rm real-estate-vinsoc-frontend:latest sh -c "find public/media_files -type f | wc -l"
 ```
 
 Kết quả:
@@ -331,7 +331,7 @@ Kết quả:
 Xác nhận media trong image:
 
 ```bash
-docker run --rm c2-app-005-frontend:latest sh -c "find public/media_files -type f | wc -l"
+docker run --rm real-estate-vinsoc-frontend:latest sh -c "find public/media_files -type f | wc -l"
 ```
 
 Kết quả:
@@ -453,7 +453,7 @@ Pass.
 Lệnh:
 
 ```bash
-docker run --rm c2-app-005-frontend:latest sh -c "find public/media_files -type f | wc -l"
+docker run --rm real-estate-vinsoc-frontend:latest sh -c "find public/media_files -type f | wc -l"
 ```
 
 Kết quả:

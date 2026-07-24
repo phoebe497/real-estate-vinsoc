@@ -429,8 +429,8 @@ DevOps:
 - Docker Compose local
 - Docker image build/publish qua GitHub Actions
 - GHCR packages:
-  - `c2-app-005-backend`
-  - `c2-app-005-frontend`
+  - `real-estate-vinsoc-backend`
+  - `real-estate-vinsoc-frontend`
 - VPS chạy staging và production bằng Docker Compose
 - Nginx reverse proxy + Certbot HTTPS
 
@@ -451,9 +451,8 @@ DevOps:
 ├── src/                     # Backend FastAPI + AI Agent + services + models
 ├── tests/                   # Pytest backend/unit/integration/agent tests
 ├── docker-compose.yml       # Local compose build từ source
-├── docker-compose.registry.yml # VPS compose dùng image từ GHCR
-├── docker-compose.deploy.yml   # Compose deploy legacy/tham khảo
-├── docker-compose.https.yml    # Compose HTTPS/Caddy legacy/tham khảo
+├── compose.security.yml        # Semgrep and OWASP ZAP scanner services
+├── compose.dast.yml            # DAST-only local overrides
 ├── Dockerfile               # Backend Dockerfile
 ├── pyproject.toml           # Python dependencies/package config
 └── requirements.txt
@@ -774,7 +773,7 @@ Mentor yêu cầu UI public giống `vinhomeoceanpark.com.vn`; các ảnh đã �
   - Local development/build từ source.
   - Dùng khi chạy:
     - `docker compose up -d --build`
-- `docker-compose.registry.yml`
+- `deploy/compose/application.yml`
   - Dùng trên VPS.
   - Pull image từ GHCR theo biến:
     - `BACKEND_IMAGE`
@@ -782,42 +781,40 @@ Mentor yêu cầu UI public giống `vinhomeoceanpark.com.vn`; các ảnh đã �
   - Map port bằng:
     - `BACKEND_PORT`
     - `FRONTEND_PORT`
-- `docker-compose.deploy.yml`
+- `deploy/compose/edge.yml`
   - File deploy legacy/tham khảo. Cần kiểm tra trước khi dùng.
-- `docker-compose.https.yml`
+- `deploy/caddy/Caddyfile.single-ec2`
   - File HTTPS/Caddy legacy/tham khảo. Hiện hướng triển khai thực tế đang dùng Nginx host + Certbot.
 
 ### 7.2 Scripts deploy
 
-- `scripts/deploy/staging_deploy.sh`
-- `scripts/deploy/staging_https_deploy.sh`
-- `scripts/deploy/production_deploy.sh`
-- `scripts/deploy/check_vps_prerequisites.sh`
+- `scripts/deploy/bootstrap_ec2_secrets.sh`
+- `scripts/deploy/ec2_deploy.sh`
+- `scripts/deploy/verify_single_ec2.sh`
 - `scripts/deploy/backup_postgres.sh`
 - `scripts/deploy/restore_postgres.sh`
-- `scripts/deploy/rollback_images.sh`
 
 Staging thực tế:
 
 ```text
-VPS path: /opt/ocean-park-advisor
+EC2 path: /opt/ocean-park/dev
 Git branch: dev
-Project name: ocean-park-staging
+Project name: ocean-park-dev
 Frontend port: 3000
 Backend port: 8000
-Domain: https://staging.c2-app-005.quangtm.site
+Domain: https://dev.vsocintern.online
 Image tag thường dùng: :dev
 ```
 
 Production thực tế:
 
 ```text
-VPS path: /opt/ocean-park-production
+EC2 path: /opt/ocean-park/prod
 Git branch: main
-Project name: ocean-park-production
+Project name: ocean-park-prod
 Frontend port: 3001
 Backend port: 8001
-Domain: https://c2-app-005.quangtm.site
+Domain: https://vsocintern.online
 Image tag đang muốn dùng thẳng: :main
 ```
 
@@ -843,8 +840,8 @@ Do billing GitHub-hosted runner từng lỗi, dự án đã chuyển một số 
 
 GHCR packages nằm trong GitHub organization/repo Packages:
 
-- `c2-app-005-backend`
-- `c2-app-005-frontend`
+- `real-estate-vinsoc-backend`
+- `real-estate-vinsoc-frontend`
 
 ---
 
@@ -868,8 +865,8 @@ ADMIN_EMAIL=...
 ADMIN_PASSWORD=...
 CORS_ORIGINS=https://...
 NEXT_PUBLIC_API_URL=https://.../api/v1
-BACKEND_IMAGE=ghcr.io/.../c2-app-005-backend:dev|main
-FRONTEND_IMAGE=ghcr.io/.../c2-app-005-frontend:dev|main
+BACKEND_IMAGE=ghcr.io/phoebe497/real-estate-vinsoc-backend@sha256:...
+FRONTEND_IMAGE=ghcr.io/phoebe497/real-estate-vinsoc-frontend@sha256:...
 FRONTEND_PORT=3000|3001
 BACKEND_PORT=8000|8001
 LLM_PROVIDER=openrouter|openai
@@ -916,25 +913,25 @@ curl http://localhost:8000/ready
 curl http://localhost:3000
 ```
 
-VPS staging:
+AWS EC2 development:
 
 ```bash
-cd /opt/ocean-park-advisor
+cd /opt/ocean-park/dev
 git checkout dev
 git pull origin dev
-bash scripts/deploy/staging_deploy.sh
+bash scripts/deploy/verify_single_ec2.sh
 curl http://127.0.0.1:8000/ready
 curl -I http://127.0.0.1:3000
 ```
 
-VPS production, dùng thẳng main:
+AWS EC2 production:
 
 ```bash
-cd /opt/ocean-park-production
+cd /opt/ocean-park/prod
 git checkout main
 git pull origin main
-docker compose --env-file .env -p ocean-park-production -f docker-compose.registry.yml pull
-docker compose --env-file .env -p ocean-park-production -f docker-compose.registry.yml up -d
+sudo cat /var/lib/ocean-park/deployments/prod.json
+curl -fsS https://api.vsocintern.online/ready
 curl http://127.0.0.1:8001/ready
 curl -I http://127.0.0.1:3001
 ```
@@ -976,7 +973,7 @@ curl -I http://127.0.0.1:3001
 - Production deploy online HTTPS.
 - Docker build/publish GHCR đã pass.
 - Tài liệu deploy cuối:
-  - `docs/reportsDevOps/final-staging-production-deployment-runbook-2026-06-29.md`
+  - `docs/deployment/aws-single-ec2-runbook.md`
 - Tài liệu audit customer/admin:
   - `docs/reportsDevOps/project-structure-admin-customer-registration-audit-2026-06-29.md`
 - Tài liệu fix customer-lead-admin-chat:
@@ -1013,11 +1010,8 @@ curl -I http://127.0.0.1:3001
 
 DevOps/deploy:
 
-- `docs/reportsDevOps/final-staging-production-deployment-runbook-2026-06-29.md`
-- `docs/reportsDevOps/vps-online-domain-deployment-summary-2026-06-29.md`
-- `docs/reportsDevOps/production-deployment-plan-after-staging-2026-06-29.md`
-- `docs/reportsDevOps/version-0.9.0-automated-staging-cd-plan.md`
-- `docs/reportsDevOps/ghcr-publish-success-next-steps.md`
+- `docs/deployment/aws-single-ec2-runbook.md`
+- `docs/reports/week1-sast-dast-cicd-baseline-report.md`
 
 AI/Data:
 
@@ -1059,7 +1053,7 @@ Trước khi sửa:
 8. Nếu sửa FE route dynamic Next 16:
    - chú ý `params` có thể là Promise trong client component.
 9. Nếu sửa deploy:
-   - phân biệt local `docker-compose.yml` và VPS `docker-compose.registry.yml`.
+   - phân biệt local `docker-compose.yml` và AWS EC2 `deploy/compose/application.yml`.
    - staging dùng `dev`, production dùng `main`.
 10. Sau mỗi thay đổi quan trọng:
     - chạy pytest backend.
@@ -1082,8 +1076,8 @@ Nếu cần nắm dự án trong 5 phút, đọc theo thứ tự:
 8. `FE/src/components/chat-widget.tsx`
 9. `FE/src/app/admin/(dashboard)/leads/page.tsx`
 10. `FE/src/app/admin/(dashboard)/leads/[id]/page.tsx`
-11. `docker-compose.registry.yml`
-12. `docs/reportsDevOps/final-staging-production-deployment-runbook-2026-06-29.md`
+11. `deploy/compose/application.yml`
+12. `docs/deployment/aws-single-ec2-runbook.md`
 
 Nếu đang debug production/staging:
 

@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-PROJECT_NAME="${PROJECT_NAME:-ocean-park-production}"
-COMPOSE_FILE="${COMPOSE_FILE:-docker-compose.https.yml}"
-ENV_FILE="${ENV_FILE:-.env}"
-BACKUP_DIR="${BACKUP_DIR:-backups/postgres}"
+PROJECT_NAME="${PROJECT_NAME:-ocean-park-prod}"
+COMPOSE_FILE="${COMPOSE_FILE:-/opt/ocean-park/shared/application.yml}"
+ENV_FILE="${ENV_FILE:-/etc/ocean-park/prod.env}"
+BACKUP_DIR="${BACKUP_DIR:-/var/backups/ocean-park/postgres}"
+DEPLOY_ENV="${DEPLOY_ENV:-prod}"
+APP_ENV_FILE="${APP_ENV_FILE:-${ENV_FILE}}"
 
 if [ ! -f "${COMPOSE_FILE}" ]; then
   echo "ERROR: ${COMPOSE_FILE} not found. Run this script from the project root."
@@ -23,7 +25,8 @@ backup_file="${BACKUP_DIR}/${PROJECT_NAME}_${timestamp}.dump"
 
 echo "Creating PostgreSQL backup: ${backup_file}"
 
-docker compose --env-file "${ENV_FILE}" -p "${PROJECT_NAME}" -f "${COMPOSE_FILE}" exec -T database \
+DEPLOY_ENV="${DEPLOY_ENV}" APP_ENV_FILE="${APP_ENV_FILE}" \
+  docker compose --env-file "${ENV_FILE}" -p "${PROJECT_NAME}" -f "${COMPOSE_FILE}" exec -T database \
   sh -lc 'pg_dump -U "$POSTGRES_USER" -d "$POSTGRES_DB" --format=custom --no-owner --no-acl' \
   > "${backup_file}"
 

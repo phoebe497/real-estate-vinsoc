@@ -94,7 +94,7 @@ Các route build ra:
 Theo lịch sử làm việc và các report DevOps:
 
 - GHCR đã có backend/frontend package.
-- VPS đã clone repo và deploy staging bằng `scripts/deploy/staging_deploy.sh`.
+- AWS EC2 nhận image bất biến từ GHCR qua GitHub OIDC, AWS SSM và `scripts/deploy/ec2_deploy.sh`.
 - Backend/database/frontend staging đã từng đạt trạng thái healthy.
 - Đã phát sinh và xử lý các lỗi staging:
   - PostgreSQL role/password.
@@ -288,7 +288,7 @@ intent_node → rag_node → llm_node
 - Login form vẫn có default demo credentials trong UI:
 
 ```text
-Production demo: https://c2-app-005.quangtm.site/admin/login
+Production demo: https://vsocintern.online/admin/login
 admin@gmail.com / admin123456789Aa@
 ```
 
@@ -314,7 +314,7 @@ admin@gmail.com / admin123456789Aa@
   - frontend build.
   - Docker build and publish GHCR.
 - GHCR images.
-- VPS staging deploy script.
+- AWS EC2 deploy wrapper qua GitHub OIDC và SSM.
 - HTTPS/Caddy scripts.
 - Backup/restore/rollback scripts.
 - Reports DevOps theo version.
@@ -332,7 +332,7 @@ dev branch → GitHub Actions → GHCR → VPS pull image → docker compose up
 Điểm còn thiếu/rủi ro:
 
 
-- `docker-compose.https.yml` vẫn có `DATABASE_URL` không kèm password, khác với hotfix ở `docker-compose.registry.yml`.
+- Cấu hình EC2 hiện dùng `/etc/ocean-park/{dev,prod}.env`; `DATABASE_URL` phải đồng bộ với `POSTGRES_PASSWORD`.
 - Production flow chưa được chạy end-to-end thực tế.
 - Chưa có monitoring/log aggregation.
 - Chưa có secret rotation/runbook cho key bị lộ.
@@ -437,7 +437,7 @@ Hiện tại:
 2. Hợp nhất database/model layer.
 3. Hợp nhất conversation/lead schema để Agent và Dashboard đọc cùng dữ liệu.
 4. Chốt `subdivisions` là schema catalog chính; không tiếp tục phát triển `project -> zone -> subzone -> building`.
-5. Sửa `docker-compose.https.yml` cho đồng bộ DATABASE_URL có password.
+5. Kiểm tra `DATABASE_URL` và `POSTGRES_PASSWORD` trong cả hai environment file trên EC2.
 6. Xác minh OpenRouter model/key trên staging bằng `/agent/status` và `/agent/chat`.
 
 ### Ưu tiên P1 — cần xử lý trước production

@@ -1,5 +1,13 @@
 # AWS single-EC2 CI/CD runbook
 
+This is the canonical deployment runbook for the project. The AWS EC2 public
+address is `52.221.55.193`, with these DNS names:
+
+- production frontend: `https://vsocintern.online`
+- production API: `https://api.vsocintern.online`
+- development/staging frontend: `https://dev.vsocintern.online`
+- development/staging API: `https://api-dev.vsocintern.online`
+
 This runbook operates one trusted EC2 Docker host with three Compose projects:
 
 - `ocean-park-edge`: the only Caddy service and the only project publishing ports 80/443.
@@ -80,8 +88,8 @@ For bootstrap, `BACKEND_IMAGE` and `FRONTEND_IMAGE` must be an existing, known-g
 Set public probes independently:
 
 ```text
-BACKEND_READY_URL=https://api-dev.example.com/ready
-FRONTEND_URL=https://dev.example.com
+BACKEND_READY_URL=https://api-dev.vsocintern.online/ready
+FRONTEND_URL=https://dev.vsocintern.online
 ```
 
 Production uses its production domains. Lock both files:
@@ -94,11 +102,11 @@ sudo chmod 600 /etc/ocean-park/dev.env /etc/ocean-park/prod.env
 Create `/etc/ocean-park/edge.env`:
 
 ```text
-ACME_EMAIL=admin@example.com
-DEV_FRONTEND_DOMAIN=dev.example.com
-DEV_API_DOMAIN=api-dev.example.com
-PROD_FRONTEND_DOMAIN=example.com
-PROD_API_DOMAIN=api.example.com
+ACME_EMAIL=security@vsocintern.online
+DEV_FRONTEND_DOMAIN=dev.vsocintern.online
+DEV_API_DOMAIN=api-dev.vsocintern.online
+PROD_FRONTEND_DOMAIN=vsocintern.online
+PROD_API_DOMAIN=api.vsocintern.online
 CADDYFILE_PATH=/opt/ocean-park/shared/Caddyfile.single-ec2
 ```
 
@@ -168,8 +176,8 @@ The two role trust policies accept only the matching immutable GitHub repository
 Create repository variables used while building the environment-specific frontend images:
 
 ```text
-DEVELOPMENT_NEXT_PUBLIC_API_URL=https://api-dev.example.com/api/v1
-PRODUCTION_NEXT_PUBLIC_API_URL=https://api.example.com/api/v1
+DEVELOPMENT_NEXT_PUBLIC_API_URL=https://api-dev.vsocintern.online/api/v1
+PRODUCTION_NEXT_PUBLIC_API_URL=https://api.vsocintern.online/api/v1
 ```
 
 Create GitHub Environments named exactly `development` and `production`. Add these variables to each Environment using the matching CloudFormation outputs:
@@ -236,8 +244,8 @@ Docker services use `restart: unless-stopped`; after reboot verify:
 sudo systemctl is-active docker amazon-ssm-agent
 sudo docker network inspect ocean-park-edge
 sudo docker ps --format 'table {{.Names}}\t{{.Status}}\t{{.Ports}}'
-curl -fsS https://api-dev.example.com/ready
-curl -fsS https://api.example.com/ready
+curl -fsS https://api-dev.vsocintern.online/ready
+curl -fsS https://api.vsocintern.online/ready
 ```
 
 Install CloudWatch Agent for host memory and disk metrics. Alert on:
