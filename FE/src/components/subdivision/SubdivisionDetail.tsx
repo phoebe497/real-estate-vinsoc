@@ -107,7 +107,7 @@ export default function SubdivisionDetail({ subdivision }: { subdivision: Subdiv
               </div>
 
               <div className="rounded-2xl bg-white p-6 shadow-lg md:p-8">
-                <h3 className="mb-6 text-xl font-bold text-navy-900">DIỆN TÍCH & GIÁ BÁN</h3>
+                <h3 className="mb-6 text-xl font-bold text-navy-900">DIỆN TÍCH &amp; GIÁ BÁN</h3>
                 <div className="overflow-x-auto">
                   <table className="w-full">
                     <thead>
@@ -176,7 +176,7 @@ export default function SubdivisionDetail({ subdivision }: { subdivision: Subdiv
               </div>
               <div className="rounded-2xl bg-white p-6 shadow-lg">
                 <h3 className="mb-4 font-semibold text-navy-900">
-                  Kết nối giao thông & tiện ích lân cận
+                  Kết nối giao thông &amp; tiện ích lân cận
                 </h3>
                 <div className="space-y-3">
                   {subdivision.connectivity.map((item) => (
@@ -238,7 +238,7 @@ export default function SubdivisionDetail({ subdivision }: { subdivision: Subdiv
         <section className="py-12 bg-gray-50">
           <div className="container-custom">
             <h2 className="mb-8 text-2xl font-bold text-navy-900 md:text-3xl">
-              TIỆN ÍCH & KHÔNG GIAN SỐNG
+              TIỆN ÍCH &amp; KHÔNG GIAN SỐNG
             </h2>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
               {subdivision.gallery.map((item) => (

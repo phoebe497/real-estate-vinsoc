@@ -1,0 +1,15 @@
+services:
+  backend:
+    environment:
+      OPENAI_API_KEY: zap-test-key
+      OPENAI_BASE_URL: http://127.0.0.1:9/v1
+      OPENAI_EMBEDDING_API_KEY: zap-test-key
+      OPENAI_EMBEDDING_BASE_URL: http://127.0.0.1:9/v1
+      LLM_API_KEY: zap-test-key
+      LLM_BASE_URL: http://127.0.0.1:9/v1
+      OPENROUTER_API_KEY: zap-test-key
+      OPENROUTER_BASE_URL: http://127.0.0.1:9/v1
+      LANGCHAIN_TRACING_V2: "false"
+      LANGCHAIN_API_KEY: ""
+      AI_LOG_SERVER: http://127.0.0.1:9
+      AI_LOG_API_KEY: ""

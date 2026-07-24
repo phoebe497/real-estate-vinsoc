@@ -338,7 +338,7 @@ Pass.
 Lệnh:
 
 ```bash
-docker run --rm c2-app-005-frontend:latest sh -c "find public/media_files -type f | wc -l"
+docker run --rm real-estate-vinsoc-frontend:latest sh -c "find public/media_files -type f | wc -l"
 ```
 
 Kết quả:

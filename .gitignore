@@ -48,6 +48,10 @@ htmlcov/
 .coverage
 coverage.xml
 
+# Generated security scanner reports
+security-reports/
+security-data-lake/
+
 # Docker
 docker-compose.override.yml
 
@@ -65,3 +69,4 @@ out/
 .ai-log/*.jsonl
 .ai-log/archive/
 .codegraph/
+secusense-reports/

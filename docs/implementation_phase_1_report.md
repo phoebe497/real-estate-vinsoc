@@ -418,7 +418,7 @@ Các API mới:
 Tài khoản demo local/Docker:
 
 ```text
-URL: https://c2-app-005.quangtm.site/admin/login
+URL: https://vsocintern.online/admin/login
 Email: admin@gmail.com
 Password: admin123456789Aa@
 ```

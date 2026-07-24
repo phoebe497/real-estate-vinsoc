@@ -136,7 +136,7 @@ docker compose up --build
 Mở:
 
 ```text
-https://c2-app-005.quangtm.site/admin/login
+https://vsocintern.online/admin/login
 ```
 
 Tài khoản demo:

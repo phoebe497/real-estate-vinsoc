@@ -8,7 +8,7 @@ Target: make the repository easy to grade for Demo Day.
 | 2 | README | Ready | `README.md` | Problem, solution, setup, APIs, RAG/LangGraph, links | Replace live links |
 | 3 | Architecture diagram | Ready | `ARCHITECTURE.md`, `docs/architecture_diagram.md` | Official architecture plus Mermaid diagrams for system, LangGraph, RAG | None |
 | 4 | AI logs | Partial | `.ai-log/`, LangSmith env in `.env.example` | Logging hooks and env documented | Need real LangSmith/AI-log screenshot or URL |
-| 5 | Live URL | Ready | `https://c2-app-005.quangtm.site` | Public URL provided | None |
+| 5 | Live URL | Ready | `https://vsocintern.online` | Public URL provided | None |
 | 6 | Video demo | Ready | Google Drive: `https://drive.google.com/drive/folders/1I12vmhLrdAU4HzOzot6R_3IydwpIAieW` | Video folder provided | None |
 | 7 | Pitch deck | Ready | `presentation/pitch_deck.html`, source outline: `presentation/pitch_deck.md` | 6-slide HTML deck for 3-minute pitch | None |
 | 8 | Weekly journal | Ready | `JOURNAL.md` | Weekly progress and lessons | None |
@@ -30,7 +30,7 @@ Target: make the repository easy to grade for Demo Day.
 - `RAG_PROVIDER=legacy` is the default local mode for stable demos without PostgreSQL.
 - `RAG_PROVIDER=pgvector` is the standard RAG path and requires Postgres with pgvector plus chunk ingestion.
 - The repository now includes both the Alembic schema and ingestion script for `knowledge_chunks`.
-- Public live URL: `https://c2-app-005.quangtm.site`.
-- Admin CRM: `https://c2-app-005.quangtm.site/admin/login`.
+- Public live URL: `https://vsocintern.online`.
+- Admin CRM: `https://vsocintern.online/admin/login`.
 - Demo admin account for BTC: `admin@gmail.com` / `admin123456789Aa@`.
 - Rotate the demo admin password after judging.

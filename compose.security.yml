@@ -1,0 +1,52 @@
+services:
+  semgrep:
+    image: semgrep/semgrep:1.169.0
+    working_dir: /src
+    volumes:
+      - ./:/src
+    entrypoint: ["semgrep"]
+    command:
+      - scan
+      - --config
+      - p/owasp-top-ten
+      - --${SEMGREP_FORMAT:-json}
+      - --output
+      - /src/security-reports/${SEMGREP_REPORT:-semgrep.json}
+      - /src/src
+      - /src/FE/src
+
+  zap-baseline:
+    image: zaproxy/zap-stable:2.17.0
+    working_dir: /zap/wrk
+    volumes:
+      - ./security-reports:/zap/wrk:rw
+      - ./security-reports/.zap-home:/home/zap/.ZAP:rw
+    entrypoint: ["zap-baseline.py"]
+    command:
+      - -t
+      - ${ZAP_TARGET:-http://frontend:3000}
+      - -J
+      - ${ZAP_REPORT:-zap-frontend.json}
+      - -I
+      - -m
+      - ${ZAP_SPIDER_MINUTES:-1}
+      - -T
+      - ${ZAP_TIMEOUT_MINUTES:-10}
+
+  zap-api:
+    image: zaproxy/zap-stable:2.17.0
+    working_dir: /zap/wrk
+    volumes:
+      - ./security-reports:/zap/wrk:rw
+      - ./security-reports/.zap-home:/home/zap/.ZAP:rw
+    entrypoint: ["zap-baseline.py"]
+    command:
+      - -t
+      - ${ZAP_API_TARGET:-http://backend:8000/docs}
+      - -J
+      - ${ZAP_API_REPORT:-zap-backend.json}
+      - -I
+      - -m
+      - ${ZAP_API_SPIDER_MINUTES:-1}
+      - -T
+      - ${ZAP_TIMEOUT_MINUTES:-10}

@@ -67,7 +67,7 @@ tests/test_agents/test_graph.py
 Docs liên quan được thêm trước đó và hiện vẫn untracked:
 
 ```text
-docs/reportsDevOps/final-staging-production-deployment-runbook-2026-06-29.md
+docs/deployment/aws-single-ec2-runbook.md
 docs/reportsDevOps/project-structure-admin-customer-registration-audit-2026-06-29.md
 ```
 
@@ -426,10 +426,10 @@ Nếu muốn xóa hẳn route UI sau này thì làm ở version riêng.
 Sau khi merge vào main và GitHub Actions build image mới, cần pull lại production:
 
 ```bash
-cd /opt/ocean-park-production
+cd /opt/ocean-park/prod
 git pull origin main
-docker compose --env-file .env -p ocean-park-production -f docker-compose.registry.yml pull
-docker compose --env-file .env -p ocean-park-production -f docker-compose.registry.yml up -d
+sudo cat /var/lib/ocean-park/deployments/prod.json
+curl -fsS https://api.vsocintern.online/ready
 ```
 
 ## 10. Hướng test thủ công sau deploy staging

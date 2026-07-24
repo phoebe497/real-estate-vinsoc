@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-PROJECT_NAME="${PROJECT_NAME:-ocean-park-production}"
-COMPOSE_FILE="${COMPOSE_FILE:-docker-compose.https.yml}"
-ENV_FILE="${ENV_FILE:-.env}"
+PROJECT_NAME="${PROJECT_NAME:-ocean-park-prod}"
+COMPOSE_FILE="${COMPOSE_FILE:-/opt/ocean-park/shared/application.yml}"
+ENV_FILE="${ENV_FILE:-/etc/ocean-park/prod.env}"
+DEPLOY_ENV="${DEPLOY_ENV:-prod}"
+APP_ENV_FILE="${APP_ENV_FILE:-${ENV_FILE}}"
 BACKUP_FILE="${1:-}"
 
 if [ -z "${BACKUP_FILE}" ]; then
@@ -34,7 +36,8 @@ fi
 
 echo "Restoring PostgreSQL backup: ${BACKUP_FILE}"
 
-docker compose --env-file "${ENV_FILE}" -p "${PROJECT_NAME}" -f "${COMPOSE_FILE}" exec -T database \
+DEPLOY_ENV="${DEPLOY_ENV}" APP_ENV_FILE="${APP_ENV_FILE}" \
+  docker compose --env-file "${ENV_FILE}" -p "${PROJECT_NAME}" -f "${COMPOSE_FILE}" exec -T database \
   sh -lc 'pg_restore -U "$POSTGRES_USER" -d "$POSTGRES_DB" --clean --if-exists --no-owner --no-acl' \
   < "${BACKUP_FILE}"
 

@@ -96,7 +96,7 @@ _Data Warehousing:_ Out of scope.
 
 _Operational Storage:_ Production backup artifacts must be stored separately from development backups and copied off the EC2 root disk, preferably to a versioned S3 bucket. A single EC2 and a single EBS volume remain a shared failure domain even when Docker volumes are logically isolated.
 
-_Source: [Docker Compose volumes](https://docs.docker.com/reference/compose-file/volumes/) and repository `docker-compose.registry.yml`._
+_Source: [Docker Compose volumes](https://docs.docker.com/reference/compose-file/volumes/) and repository `deploy/compose/application.yml`._
 
 ### Development Tools and Platforms
 

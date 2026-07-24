@@ -451,7 +451,7 @@ docker compose up -d --build
 Trên staging:
 
 ```bash
-bash scripts/deploy/staging_deploy.sh
+bash scripts/deploy/verify_single_ec2.sh
 ```
 
 Kiểm tra:

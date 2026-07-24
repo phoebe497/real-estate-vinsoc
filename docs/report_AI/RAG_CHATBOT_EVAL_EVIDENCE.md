@@ -6,8 +6,8 @@
 
 Live access for manual evaluation:
 
-- Public app: `https://c2-app-005.quangtm.site`
-- Admin CRM: `https://c2-app-005.quangtm.site/admin/login`
+- Public app: `https://vsocintern.online`
+- Admin CRM: `https://vsocintern.online/admin/login`
 - Demo admin account: `admin@gmail.com`
 - Demo admin password: `admin123456789Aa@`
 - Video demo: `https://drive.google.com/drive/folders/1I12vmhLrdAU4HzOzot6R_3IydwpIAieW`

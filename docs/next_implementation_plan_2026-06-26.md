@@ -38,7 +38,8 @@ Sau khi thống nhất, dự án mới nên tiếp tục:
 1. Lấy log backend trên VPS:
 
 ```bash
-docker compose --env-file .env -p ocean-park-staging -f docker-compose.registry.yml logs backend --tail 300
+sudo docker compose --env-file /etc/ocean-park/dev.env -p ocean-park-dev \
+  -f /opt/ocean-park/shared/application.yml logs backend --tail 300
 ```
 
 2. Test trực tiếp từ VPS:
@@ -304,7 +305,7 @@ ARCHITECTURE.md
 
 ### Công việc
 
-1. Sửa `docker-compose.https.yml` để đồng bộ DATABASE_URL có password.
+1. Xác minh `/etc/ocean-park/{dev,prod}.env` dùng cùng database password trong `POSTGRES_PASSWORD` và `DATABASE_URL`.
 2. Điều tra lỗi buildx:
 
 ```text
